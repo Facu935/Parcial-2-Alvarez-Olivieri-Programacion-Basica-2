@@ -1,6 +1,6 @@
 package ar.edu.unlam.pb2.criaturas;
 
-public class CriaturaAncestral extends Criatura{
+public class CriaturaAncestral extends CriaturaElemental{
 	
 	private final Integer ENTRENAMIENTO_EXTREMO = 70;
 

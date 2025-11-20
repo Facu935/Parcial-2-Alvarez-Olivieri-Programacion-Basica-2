@@ -1,7 +1,7 @@
 package ar.edu.unlam.pb2.criaturas;
 
 
-public class CriaturaSalvaje extends Criatura{
+public class CriaturaSalvaje extends CriaturaElemental{
 
 
 	
@@ -35,9 +35,18 @@ public class CriaturaSalvaje extends Criatura{
 	}
 
 	 */
+	
+	
+	
+	
+	//Agregar alguna dificultad para que lo haga
 	@Override
-	public void sePacifica() {
-		// TODO Auto-generated method stub
+	public void sePacifica() throws CriaturaYaPacificadaException {
+		if (this.comportamiento == ComportamientoEmocional.INESTABLE) {
+			this.comportamiento = ComportamientoEmocional.TRANQUILA;
+		} else {
+			throw new CriaturaYaPacificadaException("La Criatura ya se encuentra tranquila");
+		}
 	}
 
 	@Override

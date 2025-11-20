@@ -37,6 +37,9 @@ public class MaestroTest {
 	public void setUp() throws Exception {
 		maestro = new Maestro("Baltazar", 40, Afinidades.TIERRA);
 		criaturaDomesticada = new CriaturaDomesticada("Pablo", 80, Afinidades.TIERRA, ComportamientoEmocional.TRANQUILA);
+		criaturaSalvaje = new CriaturaSalvaje("Oliver", 50, Afinidades.FUEGO, ComportamientoEmocional.INESTABLE);
+		criaturaAncestral = new CriaturaAncestral("Smaug", 80, Afinidades.TIERRA, ComportamientoEmocional.INESTABLE);
+
 
 	}
 	
@@ -129,9 +132,9 @@ public class MaestroTest {
 		Maestro maestroInexperto = new Maestro("Baltazar", 15, Afinidades.FUEGO);
 
 		maestroInexperto.añadirCriaturaAColeccion(criaturaDomesticada);
-		Criatura criaturaAEntrenar = maestro.obtenerCriatura(criaturaDomesticada);
+		Criatura criaturaAEntrenar = maestroInexperto.obtenerCriatura(criaturaDomesticada);
 		
-		maestro.entrenarCriatura(criaturaAEntrenar, 20);
+		maestroInexperto.entrenarCriatura(criaturaAEntrenar, 20);
 
 	}
 	
