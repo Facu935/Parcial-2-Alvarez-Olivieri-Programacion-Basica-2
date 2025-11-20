@@ -38,13 +38,13 @@ public class CriaturaTest {
 	
 	public void setUp() throws Exception {
 		maestro = new Maestro("Baltazar", 40, Afinidades.TIERRA);
-		criaturaDomesticada = new Domesticada("Pablo", 150, Afinidades.TIERRA, ComportamientoEmocional.TRANQUILA);
-		criaturaSalvaje = new Salvaje("Marcelo", 100, Afinidades.FUEGO, ComportamientoEmocional.INESTABLE);
-		criaturaAncestral = new Ancestral("Jorge", 180, Afinidades.AIRE, ComportamientoEmocional.TRANQUILA);
+		criaturaDomesticada = new CriaturaDomesticada("Pablo", 150, Afinidades.TIERRA, ComportamientoEmocional.TRANQUILA);
+		criaturaSalvaje = new CriaturaSalvaje("Marcelo", 100, Afinidades.FUEGO, ComportamientoEmocional.INESTABLE);
+		criaturaAncestral = new CriaturaAncestral("Jorge", 180, Afinidades.AIRE, ComportamientoEmocional.TRANQUILA);
 	}
 	
 	
-	
+	/*
 	@Deprecated
 	public void queExistaUnaCritaura() {
 		Criatura criatura = new Criatura();
@@ -67,10 +67,10 @@ public class CriaturaTest {
 		assertEquals(comportamientoEsperado, criatura.getComportamiento());
 		
 	}
-	
+	*/
 	@Test
 	public void queExistaUnaCriaturaSalvaje() {
-		Criatura criaturaSalvaje = new Salvaje("Marcelo", 100, Afinidades.FUEGO, ComportamientoEmocional.INESTABLE);
+		Criatura criaturaSalvaje = new CriaturaSalvaje("Marcelo", 100, Afinidades.FUEGO, ComportamientoEmocional.INESTABLE);
 		
 		String nombreEsperado= "Marcelo";
 		Integer nivelEsperado = 100;
@@ -88,7 +88,7 @@ public class CriaturaTest {
 	
 	@Test
 	public void queExistaUnaCriaturaDomesticada() {
-		Criatura criaturaDomesticada = new Domesticada("Pablo", 150, Afinidades.TIERRA, ComportamientoEmocional.TRANQUILA);
+		Criatura criaturaDomesticada = new CriaturaDomesticada("Pablo", 150, Afinidades.TIERRA, ComportamientoEmocional.TRANQUILA);
 		
 		String nombreEsperado= "Pablo";
 		Integer nivelEsperado = 150;
@@ -105,7 +105,7 @@ public class CriaturaTest {
 	
 	@Test
 	public void queExistaUnaCriaturaAncestral() {
-		Criatura criaturaAncestral = new Ancestral("Jorge", 180, Afinidades.AIRE, ComportamientoEmocional.TRANQUILA);
+		Criatura criaturaAncestral = new CriaturaAncestral("Jorge", 180, Afinidades.AIRE, ComportamientoEmocional.TRANQUILA);
 		
 		String nombreEsperado= "Jorge";
 		Integer nivelEsperado = 180;

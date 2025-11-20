@@ -43,6 +43,7 @@ public class Maestro {
 	}
 
 	public void entrenarCriatura(Criatura criatura, Integer energiaAumentada) throws MaximoDeEnergiaAlcanzadoException {
+		//Meter que entrene si es que esta en la coleccion
 		criatura.aumentarEnergia(energiaAumentada);
 		//O capear Energia en 200 para todos, menos Salvaje
 	}

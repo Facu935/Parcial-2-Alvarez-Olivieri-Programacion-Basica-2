@@ -1,15 +1,15 @@
 package ar.edu.unlam.pb2.criaturas;
 
-public class Domesticada extends Criatura {
+public class CriaturaDomesticada extends Criatura {
 
-	public Domesticada(String nombre, Integer nivelDeEnergia, Afinidades afinidad,
+	public CriaturaDomesticada(String nombre, Integer nivelDeEnergia, Afinidades afinidad,
 			ComportamientoEmocional comportamiento) {
 		super(nombre, nivelDeEnergia, afinidad, comportamiento);
 	}
 
 	@Override
 	public void aumentarEnergia(Integer energia) throws MaximoDeEnergiaAlcanzadoException {
-		if (this.nivelDeEnergia + energia > 200){
+		if (this.nivelDeEnergia + energia > ENERGIA_MAX){
 			throw new MaximoDeEnergiaAlcanzadoException("Se Alcanzó el Máximo de Energía");
 		} 
 		

@@ -27,16 +27,14 @@ public class CriaturaDomesticadaTest {
 	
 	private Maestro maestro;
 	private Criatura criaturaDomesticada;
-	private Criatura criaturaSalvaje;
 	private Criatura criaturaAncestral;
 	
 	@Before
 	
 	public void setUp() throws Exception {
 		maestro = new Maestro("Baltazar", 40, Afinidades.TIERRA);
-		criaturaDomesticada = new Domesticada("Pablo", 150, Afinidades.TIERRA, ComportamientoEmocional.TRANQUILA);
-		criaturaSalvaje = new Salvaje("Marcelo", 100, Afinidades.FUEGO, ComportamientoEmocional.INESTABLE);
-		criaturaAncestral = new Ancestral("Jorge", 180, Afinidades.AIRE, ComportamientoEmocional.TRANQUILA);
+		criaturaDomesticada = new CriaturaDomesticada("Pablo", 150, Afinidades.TIERRA, ComportamientoEmocional.TRANQUILA);
+		criaturaAncestral = new CriaturaAncestral("Jorge", 180, Afinidades.AIRE, ComportamientoEmocional.TRANQUILA);
 	}
 	
 	
