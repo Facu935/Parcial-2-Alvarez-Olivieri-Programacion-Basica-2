@@ -7,4 +7,16 @@ public class Domesticada extends Criatura {
 		super(nombre, nivelDeEnergia, afinidad, comportamiento);
 	}
 
+	@Override
+	public void aumentarEnergia(Integer energia) throws MaximoDeEnergiaAlcanzadoException {
+		if (this.nivelDeEnergia + energia > 200){
+			throw new MaximoDeEnergiaAlcanzadoException("Se Alcanzó el Máximo de Energía");
+		} 
+		
+		this.nivelDeEnergia += energia;
+		
+		
+	}
+
+
 }

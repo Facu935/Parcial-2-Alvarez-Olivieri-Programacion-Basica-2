@@ -2,7 +2,7 @@ package ar.edu.unlam.pb2.criaturas;
 
 import java.util.HashMap;
 import java.util.Map;
-
+ 
 public class Maestro {
 
 	private String nombre;
@@ -40,6 +40,11 @@ public class Maestro {
 
 	public Criatura obtenerCriatura(Criatura criatura) {
 		return criaturasACargo.get(criatura.getNombre());
+	}
+
+	public void entrenarCriatura(Criatura criatura, Integer energiaAumentada) throws MaximoDeEnergiaAlcanzadoException {
+		criatura.aumentarEnergia(energiaAumentada);
+		//O capear Energia en 200 para todos, menos Salvaje
 	}
 
 

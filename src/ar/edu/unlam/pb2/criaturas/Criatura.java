@@ -6,6 +6,8 @@ public abstract class Criatura {
 	protected Integer nivelDeEnergia;
 	protected Afinidades afinidad;
 	protected ComportamientoEmocional comportamiento;
+	protected static final Integer ENERGIA_MAX = 200;
+	
 	
 	public Criatura(String nombre, Integer nivelDeEnergia, Afinidades afinidad, ComportamientoEmocional comportamiento) {
 		this.nombre = nombre;
@@ -28,6 +30,12 @@ public abstract class Criatura {
 
 	public ComportamientoEmocional getComportamiento() {
 		return this.comportamiento;
+	}
+	
+	protected abstract void aumentarEnergia(Integer energia) throws MaximoDeEnergiaAlcanzadoException;
+
+	protected void setNivelEnergiaMaximo() {
+		this.nivelDeEnergia = ENERGIA_MAX;
 	}
 	
 	

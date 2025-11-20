@@ -7,4 +7,12 @@ public class Ancestral extends Criatura {
 		super(nombre, nivelDeEnergia, afinidad, comportamiento);
 	}
 
+	@Override
+	public void aumentarEnergia(Integer energia) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
 }
