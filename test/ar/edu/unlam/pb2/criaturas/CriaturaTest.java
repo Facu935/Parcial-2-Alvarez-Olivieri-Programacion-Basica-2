@@ -44,47 +44,8 @@ public class CriaturaTest {
 	}
 	
 	
-	/*
-	@Deprecated
-	public void queExistaUnaCritaura() {
-		Criatura criatura = new Criatura();
-		
-		assertNotNull(criatura);
-	}
-	
-	@Deprecated
-	public void queExistaUnaCriaturaConTodasSusCaracteristicas() {
-		Criatura criatura = new Criatura("Facu", 50, Afinidades.AGUA, ComportamientoEmocional.TRANQUILA);
-		
-		String nombreEsperado= "Facu";
-		Integer nivelEsperado = 50;
-		Afinidades afinidadEsperada = Afinidades.AGUA;
-		ComportamientoEmocional comportamientoEsperado = ComportamientoEmocional.TRANQUILA;
-	
-		assertEquals(nombreEsperado, criatura.getNombre());
-		assertEquals(nivelEsperado, criatura.getNivel());
-		assertEquals(afinidadEsperada, criatura.getAfinidad());
-		assertEquals(comportamientoEsperado, criatura.getComportamiento());
-		
-	}
-	*/
-	@Test
-	public void queExistaUnaCriaturaSalvaje() {
-		Criatura criaturaSalvaje = new CriaturaSalvaje("Marcelo", 100, Afinidades.FUEGO, ComportamientoEmocional.INESTABLE);
-		
-		String nombreEsperado= "Marcelo";
-		Integer nivelEsperado = 100;
-		Afinidades afinidadEsperada = Afinidades.FUEGO;
-		ComportamientoEmocional comportamientoEsperado = ComportamientoEmocional.INESTABLE;
-	
 
-		assertNotNull(criaturaSalvaje);
-		assertEquals(nombreEsperado, criaturaSalvaje.getNombre());
-		assertEquals(nivelEsperado, criaturaSalvaje.getNivel());
-		assertEquals(afinidadEsperada, criaturaSalvaje.getAfinidad());
-		assertEquals(comportamientoEsperado, criaturaSalvaje.getComportamiento());
-		
-	}
+
 	
 	@Test
 	public void queExistaUnaCriaturaDomesticada() {

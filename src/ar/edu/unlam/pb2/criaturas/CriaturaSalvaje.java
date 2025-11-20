@@ -1,7 +1,7 @@
 package ar.edu.unlam.pb2.criaturas;
 
 
-public class CriaturaSalvaje extends Criatura {
+public class CriaturaSalvaje extends Criatura  implements Modificable{
 
 
 	
@@ -33,14 +33,22 @@ public class CriaturaSalvaje extends Criatura {
 	    //Decidimos que que la probabilidad de que ocurra esto sea de un 10%
 	}
 
-	//Meter una probabilidad aca ya que son dificiles de tranquilizar
+
 	@Override
-	protected void sePacifica() throws CriaturaYaPacificadaException {
-		if (this.comportamiento == ComportamientoEmocional.INESTABLE) {
-			this.comportamiento = ComportamientoEmocional.TRANQUILA;
-		} else {
-			throw new CriaturaYaPacificadaException("La Criatura ya se encuentra pacificada");
-		}
+	public void sePacifica() {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void entrenar(Integer energia) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void transformar() {
+		// TODO Auto-generated method stub
+		
 	}
     
     

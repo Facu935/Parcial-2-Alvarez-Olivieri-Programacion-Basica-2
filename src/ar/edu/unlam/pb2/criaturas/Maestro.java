@@ -14,9 +14,27 @@ public class Maestro {
 	public Maestro(String nombre, Integer maestria, Afinidades afinidad) {
 		this.nombre = nombre;
 		this.maestria = maestria;
+		validarMaestria();
 		this.afinidad = afinidad;
 	}
+							
 
+	public void validarMaestria() {
+		if (this.maestria <= 0) {
+			this.maestria = 1;
+		}
+		if (this.maestria > 50) {
+			this.maestria = 50;
+		}
+	}
+	
+	public void aumentarMaestria() {
+		this.maestria += 1;
+		
+		if (this.maestria >= 50) {
+			this.maestria = 50;
+		}
+	}
 	public String getNombre() {
 		return this.nombre;
 	}
@@ -42,10 +60,12 @@ public class Maestro {
 		return criaturasACargo.get(criatura.getNombre());
 	}
 
-	public void entrenarCriatura(Criatura criatura, Integer energiaAumentada) throws MaximoDeEnergiaAlcanzadoException {
-		//Meter que entrene si es que esta en la coleccion
-		criatura.aumentarEnergia(energiaAumentada);
-		//O capear Energia en 200 para todos, menos Salvaje
+	
+	
+	
+	//Meter validacion por si no tienen la suficiente Maestria
+	public void entrenarCriatura(Criatura criatura, Integer energiaAAumentar) throws MaximoDeEnergiaAlcanzadoException {
+		criatura.entrenar(energiaAAumentar);
 	}
 
 	public void pacificarCriatura(Criatura criaturaAPacificar) throws CriaturaYaPacificadaException{

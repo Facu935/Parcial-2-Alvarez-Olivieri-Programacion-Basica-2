@@ -1,29 +1,35 @@
 package ar.edu.unlam.pb2.criaturas;
 
-public class CriaturaDomesticada extends Criatura {
+public class CriaturaDomesticada extends Criatura  implements Modificable{
+	 
 
 	public CriaturaDomesticada(String nombre, Integer nivelDeEnergia, Afinidades afinidad,
 			ComportamientoEmocional comportamiento) {
+		
 		super(nombre, nivelDeEnergia, afinidad, comportamiento);
-		
-		//El comportamiento siempre tiene que comenzar ser TRANQUILO
-	}
-
-	@Override
-	public void aumentarEnergia(Integer energia) throws MaximoDeEnergiaAlcanzadoException {
-		if (this.nivelDeEnergia + energia > ENERGIA_MAX){
-			throw new MaximoDeEnergiaAlcanzadoException("Se Alcanzó el Máximo de Energía");
-		} 
-		
-		this.nivelDeEnergia += energia;
-		
+		this.comportamiento = ComportamientoEmocional.TRANQUILA;
 		
 	}
 
+
+
 	@Override
-	protected void sePacifica() throws CriaturaYaPacificadaException {
-		throw new CriaturaYaPacificadaException("Las Criaturas Domesticadas ya son TRANQUILAS");
-	
+	public void sePacifica() throws CriaturaYaPacificadaException {
+		throw new CriaturaYaPacificadaException("La Criatura ya se encuentra tranquila");
+	}
+
+	@Override
+	public void entrenar(Integer energiaAAumentar) throws MaximoDeEnergiaAlcanzadoException {
+		this.nivelDeEnergia += energiaAAumentar;
+		if (this.nivelDeEnergia > 200) {
+			limiteDe200deEnergiaAlcanzado(); 
+		}
+	}
+
+	@Override
+	public void transformar() {
+		
+		
 	}
 
 

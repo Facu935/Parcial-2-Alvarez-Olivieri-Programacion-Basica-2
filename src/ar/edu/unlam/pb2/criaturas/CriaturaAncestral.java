@@ -1,30 +1,59 @@
 package ar.edu.unlam.pb2.criaturas;
 
-public class CriaturaAncestral extends Criatura {
+import javax.swing.plaf.ComponentInputMapUIResource;
+
+public class CriaturaAncestral extends Criatura  implements Modificable{
+	
+	private final Integer ENTRENAMIENTO_EXTREMO = 70;
 
 	public CriaturaAncestral(String nombre, Integer nivelDeEnergia, Afinidades afinidad,
 			ComportamientoEmocional comportamiento) {
 		super(nombre, nivelDeEnergia, afinidad, comportamiento);
+		this.nivelDeEnergia = 100;
 	}
 	//Que su energia no baje de 100
 
 	
 	//Cambiar a estado Inestable si se aumenta mucho la energia por ser un entrenamiento extremo??
+	
 	@Override
-	public void aumentarEnergia(Integer energia) {
-		// TODO Auto-generated method stub
+	public void entrenar(Integer energiaAumentada) throws MaximoDeEnergiaAlcanzadoException {
+		this.nivelDeEnergia += energiaAumentada;
+		
+		if (this.nivelDeEnergia < 100) {
+			this.nivelDeEnergia = 100;
+		}
+		
+		if (this.nivelDeEnergia > 200) {
+			limiteDe200deEnergiaAlcanzado();
+		}
+		
+		if (energiaAumentada >= ENTRENAMIENTO_EXTREMO) {
+			this.comportamiento = ComportamientoEmocional.INESTABLE;
+		}
 		
 	}
 
 	@Override
-	protected void sePacifica() throws CriaturaYaPacificadaException {
+	public void transformar() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void sePacifica() throws CriaturaYaPacificadaException{
 		if (this.comportamiento == ComportamientoEmocional.INESTABLE) {
 			this.comportamiento = ComportamientoEmocional.TRANQUILA;
 		} else {
-			throw new CriaturaYaPacificadaException("La Criatura ya se encuentra pacificada");
+			throw new CriaturaYaPacificadaException("La Criatura ya se encuentra tranquila");
 		}
 		
 	}
+
+
+
+
+
+
 
 
 

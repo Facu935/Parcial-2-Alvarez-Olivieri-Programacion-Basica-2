@@ -1,6 +1,6 @@
 package ar.edu.unlam.pb2.criaturas;
 
-public abstract class Criatura {
+public abstract class Criatura{
 
 	protected String nombre;
 	protected Integer nivelDeEnergia;
@@ -32,11 +32,21 @@ public abstract class Criatura {
 		return this.comportamiento;
 	}
 	
-	protected abstract void aumentarEnergia(Integer energia) throws MaximoDeEnergiaAlcanzadoException;
-	protected abstract void sePacifica() throws CriaturaYaPacificadaException;
+	
+	protected void limiteDe200deEnergiaAlcanzado() throws MaximoDeEnergiaAlcanzadoException {
+		if (nivelDeEnergia > 200) {
+			nivelDeEnergia = 200;
+			throw new MaximoDeEnergiaAlcanzadoException("Ya se encuentra en el máximo de Energía, se limitó a 200");
+		}
+	}
 
 	protected void setNivelEnergiaMaximo() {
-		this.nivelDeEnergia = ENERGIA_MAX;
+		this.nivelDeEnergia = ENERGIA_MAX; 
+	}
+
+	public void sePacifica() throws CriaturaYaPacificadaException {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

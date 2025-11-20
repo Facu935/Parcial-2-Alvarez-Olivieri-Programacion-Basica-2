@@ -36,16 +36,9 @@ public class MaestroTest {
 	
 	public void setUp() throws Exception {
 		maestro = new Maestro("Baltazar", 40, Afinidades.TIERRA);
-		criaturaDomesticada = new CriaturaDomesticada("Pablo", 150, Afinidades.TIERRA, ComportamientoEmocional.TRANQUILA);
-		criaturaSalvaje = new CriaturaSalvaje("Marcelo", 100, Afinidades.FUEGO, ComportamientoEmocional.INESTABLE);
-		criaturaAncestral = new CriaturaAncestral("Jorge", 180, Afinidades.AIRE, ComportamientoEmocional.TRANQUILA);
+		criaturaDomesticada = new CriaturaDomesticada("Pablo", 80, Afinidades.TIERRA, ComportamientoEmocional.TRANQUILA);
+
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 	@Test
@@ -61,6 +54,37 @@ public class MaestroTest {
 		assertEquals(maestriaEsperado, maestro.getMaestria());
 		assertEquals(afinidadEsperada, maestro.getAfinidad());
 	}
+	
+	@Test
+	public void queElMaestroNoComienzeConCeroOMenosDeMaestria() {
+		Maestro maestro1 = new Maestro("Baltazar", -5, Afinidades.TIERRA);
+		
+		Integer maestriaEsperado = 1;
+
+		assertEquals(maestriaEsperado, maestro1.getMaestria());
+	}
+	
+	@Test
+	public void queElMaestroNoComienzeConMasDeCincuentaDeMaestria() {
+		Maestro maestro1 = new Maestro("Baltazar", 100, Afinidades.TIERRA);
+		
+		Integer maestriaEsperado = 50;
+
+		assertEquals(maestriaEsperado, maestro1.getMaestria());
+	} 
+	
+	@Test
+	public void queElMaestroNoSePaseDelTopeDeMaestria() {
+		Maestro maestro1 = new Maestro("Baltazar", 49, Afinidades.TIERRA);
+		
+		maestro1.aumentarMaestria();
+		maestro1.aumentarMaestria();
+		
+		Integer maestriaEsperado = 50;
+
+		assertEquals(maestriaEsperado, maestro1.getMaestria());
+	}
+
 
 	
 	@Test
@@ -78,7 +102,6 @@ public class MaestroTest {
 		maestro.añadirCriaturaAColeccion(criaturaDomesticada);
 		maestro.añadirCriaturaAColeccion(criaturaSalvaje);
 		maestro.añadirCriaturaAColeccion(criaturaAncestral);
-		
 		Criatura criaturaAEntrenar = maestro.obtenerCriatura(criaturaDomesticada);
 
 		
@@ -87,14 +110,14 @@ public class MaestroTest {
 	}
 	
 	@Test
-	public void queElMaestroPuedaEntrenarAUnaCriaturaDomesticada() throws MaximoDeEnergiaAlcanzadoException {
+	public void queElMaestroPuedaEntrenarAUnaCriatura() throws MaximoDeEnergiaAlcanzadoException {
 
 		maestro.añadirCriaturaAColeccion(criaturaDomesticada);
 		Criatura criaturaAEntrenar = maestro.obtenerCriatura(criaturaDomesticada);
 		
 		maestro.entrenarCriatura(criaturaAEntrenar, 20);
 
-		Integer nivelEsperado = 170;
+		Integer nivelEsperado = 100;
 		
 		assertEquals(nivelEsperado, criaturaDomesticada.getNivel());
 

@@ -34,6 +34,23 @@ public class CriaturaSalvajeTest {
 	}
 
 	
+	@Test
+	public void queExistaUnaCriaturaSalvaje() {
+		
+		String nombreEsperado= "Marcelo";
+		Integer nivelEsperado = 100;
+		Afinidades afinidadEsperada = Afinidades.FUEGO;
+		ComportamientoEmocional comportamientoEsperado = ComportamientoEmocional.INESTABLE;
+	
+
+		assertNotNull(criaturaSalvaje);
+		assertEquals(nombreEsperado, criaturaSalvaje.getNombre());
+		assertEquals(nivelEsperado, criaturaSalvaje.getNivel());
+		assertEquals(afinidadEsperada, criaturaSalvaje.getAfinidad());
+		assertEquals(comportamientoEsperado, criaturaSalvaje.getComportamiento());
+		
+	}
+	
 	
 	
 	
