@@ -43,10 +43,15 @@ public class CriaturaElementalTest {
 	public void queUnaCriaturaRecibaLaBendicionDelAguaYSeDupliqueSuEnergia() {
 		criaturaDomesticada.bendicionDelRio();
 
-		
 		Integer valorEsperadoDomesticado = 120;
 		
 		assertEquals(valorEsperadoDomesticado, criaturaDomesticada.getNivel());
+		
+	}
+	
+	@Test
+	public void queUnaCriaturaRecibaLaBendicionDelAguaYNoSePaseDelLimiteDe180() {
+
 		
 	}
 
