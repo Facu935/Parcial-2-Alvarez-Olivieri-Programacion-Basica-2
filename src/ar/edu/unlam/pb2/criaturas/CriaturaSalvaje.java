@@ -32,6 +32,16 @@ public class CriaturaSalvaje extends Criatura {
 	    return 1 + (int) (Math.random() * 130);
 	    //Decidimos que que la probabilidad de que ocurra esto sea de un 10%
 	}
+
+	//Meter una probabilidad aca ya que son dificiles de tranquilizar
+	@Override
+	protected void sePacifica() throws CriaturaYaPacificadaException {
+		if (this.comportamiento == ComportamientoEmocional.INESTABLE) {
+			this.comportamiento = ComportamientoEmocional.TRANQUILA;
+		} else {
+			throw new CriaturaYaPacificadaException("La Criatura ya se encuentra pacificada");
+		}
+	}
     
     
     

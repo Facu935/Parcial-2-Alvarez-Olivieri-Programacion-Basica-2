@@ -48,6 +48,11 @@ public class Maestro {
 		//O capear Energia en 200 para todos, menos Salvaje
 	}
 
+	public void pacificarCriatura(Criatura criaturaAPacificar) throws CriaturaYaPacificadaException{
+			criaturaAPacificar.sePacifica();
+		
+	}
+
 
 
 

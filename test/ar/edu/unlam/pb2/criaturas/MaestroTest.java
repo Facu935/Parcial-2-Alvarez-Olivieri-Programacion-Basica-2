@@ -100,7 +100,29 @@ public class MaestroTest {
 
 	}
 	
+	@Test
+	public void queElMaestroPuedaPacificarAUnaCriatura() throws CriaturaYaPacificadaException{
 
+		maestro.añadirCriaturaAColeccion(criaturaSalvaje);
+		Criatura criaturaAPacificar = maestro.obtenerCriatura(criaturaSalvaje);
+		
+		maestro.pacificarCriatura(criaturaAPacificar);
+		ComportamientoEmocional comportamientoEsperado = ComportamientoEmocional.TRANQUILA;
+		
+		assertEquals(comportamientoEsperado, criaturaAPacificar.getComportamiento());
+
+	}
+	
+	@Test (expected = CriaturaYaPacificadaException.class)
+	public void queElMaestroNoPuedaPacificarAUnaCriaturaYaPacificada() throws CriaturaYaPacificadaException{
+
+		maestro.añadirCriaturaAColeccion(criaturaDomesticada);
+		Criatura criaturaAPacificar = maestro.obtenerCriatura(criaturaDomesticada);
+		
+		maestro.pacificarCriatura(criaturaAPacificar);
+
+
+	}
 
 
 

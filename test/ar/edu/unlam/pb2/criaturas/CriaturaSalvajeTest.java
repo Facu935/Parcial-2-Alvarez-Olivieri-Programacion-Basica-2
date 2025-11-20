@@ -38,6 +38,13 @@ public class CriaturaSalvajeTest {
 	
 	
 	
+	//PENSAR BIEN ESTO y lo de aumentarEnergia(); Tal vez dejar aumentarEnergia para despues
+	
+	
+	
+	
+	
+	
 	@Test
 	public void queUnaCriaturaSalvajeAumenteSuEnergiaDeManeraImpredecibleYqueMuestreExceptionSiSeDesborda() throws MaximoDeEnergiaAlcanzadoException,
 	EnergiaDesbordadaException {

@@ -5,6 +5,8 @@ public class CriaturaDomesticada extends Criatura {
 	public CriaturaDomesticada(String nombre, Integer nivelDeEnergia, Afinidades afinidad,
 			ComportamientoEmocional comportamiento) {
 		super(nombre, nivelDeEnergia, afinidad, comportamiento);
+		
+		//El comportamiento siempre tiene que comenzar ser TRANQUILO
 	}
 
 	@Override
@@ -17,6 +19,13 @@ public class CriaturaDomesticada extends Criatura {
 		
 		
 	}
+
+	@Override
+	protected void sePacifica() throws CriaturaYaPacificadaException {
+		throw new CriaturaYaPacificadaException("Las Criaturas Domesticadas ya son TRANQUILAS");
+	
+	}
+
 
 
 }

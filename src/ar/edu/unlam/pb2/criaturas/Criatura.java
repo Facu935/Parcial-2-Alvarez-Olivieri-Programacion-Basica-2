@@ -33,10 +33,13 @@ public abstract class Criatura {
 	}
 	
 	protected abstract void aumentarEnergia(Integer energia) throws MaximoDeEnergiaAlcanzadoException;
+	protected abstract void sePacifica() throws CriaturaYaPacificadaException;
 
 	protected void setNivelEnergiaMaximo() {
 		this.nivelDeEnergia = ENERGIA_MAX;
 	}
+
+	
 	
 	
 }
