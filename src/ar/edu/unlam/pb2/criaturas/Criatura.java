@@ -1,6 +1,6 @@
 package ar.edu.unlam.pb2.criaturas;
 
-public abstract class Criatura{
+public abstract class Criatura implements Modificable{
 
 	protected String nombre;
 	protected Integer nivelDeEnergia;
@@ -44,10 +44,8 @@ public abstract class Criatura{
 		this.nivelDeEnergia = ENERGIA_MAX; 
 	}
 
-	public void sePacifica() throws CriaturaYaPacificadaException {
-		// TODO Auto-generated method stub
-		
-	}
+	public abstract void sePacifica() throws CriaturaYaPacificadaException;
+
 
 	
 	

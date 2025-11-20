@@ -1,6 +1,6 @@
 package ar.edu.unlam.pb2.criaturas;
 
-public class CriaturaDomesticada extends Criatura  implements Modificable{
+public class CriaturaDomesticada extends Criatura{
 	 
 
 	public CriaturaDomesticada(String nombre, Integer nivelDeEnergia, Afinidades afinidad,

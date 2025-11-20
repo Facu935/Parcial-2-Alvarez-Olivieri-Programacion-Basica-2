@@ -64,8 +64,13 @@ public class Maestro {
 	
 	
 	//Meter validacion por si no tienen la suficiente Maestria
-	public void entrenarCriatura(Criatura criatura, Integer energiaAAumentar) throws MaximoDeEnergiaAlcanzadoException {
-		criatura.entrenar(energiaAAumentar);
+	public void entrenarCriatura(Criatura criatura, Integer energiaAAumentar) throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException {
+		if (this.maestria >= 25) {
+			criatura.entrenar(energiaAAumentar); 
+		} else {
+			throw new FaltaDeMaestriaException("Al Maestro le falta maestria elemental para entrenar a la criatura, que siga estudiando");
+		}
+		
 	}
 
 	public void pacificarCriatura(Criatura criaturaAPacificar) throws CriaturaYaPacificadaException{

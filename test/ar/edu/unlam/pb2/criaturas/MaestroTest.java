@@ -110,7 +110,8 @@ public class MaestroTest {
 	}
 	
 	@Test
-	public void queElMaestroPuedaEntrenarAUnaCriatura() throws MaximoDeEnergiaAlcanzadoException {
+	public void queElMaestroPuedaEntrenarAUnaCriatura() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException {
+
 
 		maestro.añadirCriaturaAColeccion(criaturaDomesticada);
 		Criatura criaturaAEntrenar = maestro.obtenerCriatura(criaturaDomesticada);
@@ -120,6 +121,17 @@ public class MaestroTest {
 		Integer nivelEsperado = 100;
 		
 		assertEquals(nivelEsperado, criaturaDomesticada.getNivel());
+
+	}
+	
+	@Test (expected = FaltaDeMaestriaException.class)
+	public void queElMaestroNoPuedaEntrenarAUnaCriaturaSiNoTieneLaSuficienteMaestria() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException {
+		Maestro maestroInexperto = new Maestro("Baltazar", 15, Afinidades.FUEGO);
+
+		maestroInexperto.añadirCriaturaAColeccion(criaturaDomesticada);
+		Criatura criaturaAEntrenar = maestro.obtenerCriatura(criaturaDomesticada);
+		
+		maestro.entrenarCriatura(criaturaAEntrenar, 20);
 
 	}
 	

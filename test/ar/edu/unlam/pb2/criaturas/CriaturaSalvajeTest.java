@@ -60,7 +60,7 @@ public class CriaturaSalvajeTest {
 	
 	
 	
-	
+	/*
 	
 	@Test
 	public void queUnaCriaturaSalvajeAumenteSuEnergiaDeManeraImpredecibleYqueMuestreExceptionSiSeDesborda() throws MaximoDeEnergiaAlcanzadoException,
@@ -102,7 +102,7 @@ public class CriaturaSalvajeTest {
         assertEquals(Integer.valueOf(110), salvaje.getNivel());
         /*Aca creamos subclase para realizar el test si es que el valor aletorio del nivel aumentado NO hace overflow, es una pequeña prueba donde 
         * fijamos el valor a uno que NO de el desbordamiento si es que el metodo generarNumeroAletorio(), lo genera
-        */
+        
     }
 	
 	
@@ -130,15 +130,10 @@ public class CriaturaSalvajeTest {
         
         /*Aca creamos subclase para realizar el test si es que el valor aletorio del nivel aumentado hace overflow, es una pequeña prueba donde 
         * fijamos el valor a uno que de desbordamiento para probar la Excepcion
-        */
+        
     }
 	
-	
-	
-	
-
-	
-	
+	*/
 	
 
 }

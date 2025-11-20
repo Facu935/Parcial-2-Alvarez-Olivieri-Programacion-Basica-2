@@ -1,7 +1,7 @@
 package ar.edu.unlam.pb2.criaturas;
 
 
-public class CriaturaSalvaje extends Criatura  implements Modificable{
+public class CriaturaSalvaje extends Criatura{
 
 
 	
@@ -9,6 +9,7 @@ public class CriaturaSalvaje extends Criatura  implements Modificable{
 		super(nombre, nivelDeEnergia, afinidad, comportamiento);
 	}
 
+	/*
 	@Override
 	public void aumentarEnergia(Integer energia) throws MaximoDeEnergiaAlcanzadoException {
 		//Acá pensé en aumentar de manera Aleatoria la energia del Salvaje
@@ -24,7 +25,7 @@ public class CriaturaSalvaje extends Criatura  implements Modificable{
 	
 	
 	protected int generarAumentoAleatorio() {
-	    final double PROBABILIDAD = 0.10; 
+	    final double PROBABILIDAD = 0.10;
 	    
 	    if (Math.random() > PROBABILIDAD) {
 	        return 0;
@@ -33,7 +34,7 @@ public class CriaturaSalvaje extends Criatura  implements Modificable{
 	    //Decidimos que que la probabilidad de que ocurra esto sea de un 10%
 	}
 
-
+	 */
 	@Override
 	public void sePacifica() {
 		// TODO Auto-generated method stub

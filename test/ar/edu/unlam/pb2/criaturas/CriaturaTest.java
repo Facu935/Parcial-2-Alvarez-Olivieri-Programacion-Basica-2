@@ -83,7 +83,7 @@ public class CriaturaTest {
 
 	
 	@Test
-	public void queElMaestroPuedaEntrenarAUnaCriaturaDomesticada() throws MaximoDeEnergiaAlcanzadoException {
+	public void queElMaestroPuedaEntrenarAUnaCriaturaDomesticada() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException {
 
 		maestro.añadirCriaturaAColeccion(criaturaDomesticada);
 		Criatura criaturaAEntrenar = maestro.obtenerCriatura(criaturaDomesticada);

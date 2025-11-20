@@ -1,25 +1,27 @@
 package ar.edu.unlam.pb2.criaturas;
 
-import javax.swing.plaf.ComponentInputMapUIResource;
-
-public class CriaturaAncestral extends Criatura  implements Modificable{
+public class CriaturaAncestral extends Criatura{
 	
 	private final Integer ENTRENAMIENTO_EXTREMO = 70;
 
 	public CriaturaAncestral(String nombre, Integer nivelDeEnergia, Afinidades afinidad,
 			ComportamientoEmocional comportamiento) {
 		super(nombre, nivelDeEnergia, afinidad, comportamiento);
-		this.nivelDeEnergia = 100;
+		validarNivel();
 	}
 	//Que su energia no baje de 100
 
 	
 	//Cambiar a estado Inestable si se aumenta mucho la energia por ser un entrenamiento extremo??
 	
+	private void validarNivel() {
+		if (this.nivelDeEnergia < 100) {
+			this.nivelDeEnergia = 100;
+		}
+	}
 	@Override
 	public void entrenar(Integer energiaAumentada) throws MaximoDeEnergiaAlcanzadoException {
 		this.nivelDeEnergia += energiaAumentada;
-		
 		if (this.nivelDeEnergia < 100) {
 			this.nivelDeEnergia = 100;
 		}
@@ -33,12 +35,7 @@ public class CriaturaAncestral extends Criatura  implements Modificable{
 		}
 		
 	}
-
-	@Override
-	public void transformar() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	@Override
 	public void sePacifica() throws CriaturaYaPacificadaException{
 		if (this.comportamiento == ComportamientoEmocional.INESTABLE) {
@@ -48,6 +45,13 @@ public class CriaturaAncestral extends Criatura  implements Modificable{
 		}
 		
 	}
+
+	@Override
+	public void transformar() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 
 
