@@ -35,7 +35,7 @@ public class CriaturasAncestralesTest {
 	
 	
 	@Test
-	public void queLaCriaturaAncestralSePuedaEntrenarEstablemente() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException{
+	public void queLaCriaturaAncestralSePuedaEntrenarEstablemente() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException, EnergiaAcabadaException{
 		Criatura criaturaAEntrenar = maestro.obtenerCriatura(criaturaAncestral);
 		maestro.entrenarCriatura(criaturaAEntrenar, 20);
 
@@ -45,7 +45,7 @@ public class CriaturasAncestralesTest {
 
 	}
 	@Test
-	public void queLaCriaturaAncestralNoPuedaBajarSuEnergiaDe100() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException {
+	public void queLaCriaturaAncestralNoPuedaBajarSuEnergiaDe100() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException, EnergiaAcabadaException {
 		Criatura criaturaAEntrenar = maestro.obtenerCriatura(criaturaAncestral);
 		maestro.entrenarCriatura(criaturaAEntrenar, -20);
 		Integer nivelEsperado = 100;
@@ -55,7 +55,7 @@ public class CriaturasAncestralesTest {
 	
 	
 	@Test
-	public void queLaCriaturaAncestralAlEsforzarMuchoSeVuelvaInestable() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException {
+	public void queLaCriaturaAncestralAlEsforzarMuchoSeVuelvaInestable() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException, EnergiaAcabadaException {
 		Criatura criaturaAEntrenar = maestro.obtenerCriatura(criaturaAncestral);
 		maestro.entrenarCriatura(criaturaAEntrenar, 80);
 		

@@ -32,7 +32,7 @@ public class CriaturaDecorator extends Criatura {
 
 
     @Override
-    public void entrenar(Integer energia) throws MaximoDeEnergiaAlcanzadoException {
+    public void entrenar(Integer energia) throws MaximoDeEnergiaAlcanzadoException, EnergiaAcabadaException {
     	criatura.entrenar(energia);
     }
 

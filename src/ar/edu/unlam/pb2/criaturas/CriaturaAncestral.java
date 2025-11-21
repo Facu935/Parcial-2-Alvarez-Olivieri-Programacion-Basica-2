@@ -21,16 +21,13 @@ public class CriaturaAncestral extends CriaturaElemental{
 	@Override
 	public void entrenar(Integer energiaAumentada) throws MaximoDeEnergiaAlcanzadoException {
 		this.nivelDeEnergia += energiaAumentada;
-		if (this.nivelDeEnergia < 0) {
-			this.nivelDeEnergia = 0;
-		}
+
 		if (this.nivelDeEnergia < 100) {
 			this.nivelDeEnergia = 100;
 		}
 		
-		if (this.nivelDeEnergia > 200) {
-			limiteDe200deEnergiaAlcanzado();
-		}
+		limiteDe200deEnergiaAlcanzado();
+
 		
 		if (energiaAumentada >= ENTRENAMIENTO_EXTREMO) {
 			this.comportamiento = ComportamientoEmocional.INESTABLE;

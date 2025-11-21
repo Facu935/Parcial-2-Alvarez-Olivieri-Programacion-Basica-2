@@ -83,7 +83,7 @@ public class CriaturaTest {
 
 	
 	@Test
-	public void queElMaestroPuedaEntrenarAUnaCriaturaDomesticada() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException {
+	public void queElMaestroPuedaEntrenarAUnaCriaturaDomesticada() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException, EnergiaAcabadaException {
 
 		maestro.añadirCriaturaAColeccion(criaturaDomesticada);
 		Criatura criaturaAEntrenar = maestro.obtenerCriatura(criaturaDomesticada);
@@ -95,6 +95,115 @@ public class CriaturaTest {
 		assertEquals(nivelEsperado, criaturaDomesticada.getNivel());
 
 	}
+	
+	///Parte 3	
+	
+	@Test
+	public void queLasCriaturasAumentenEn10SuEnergiaSiCompartenAfinidad() throws MaximoDeEnergiaAlcanzadoException, EnergiaAcabadaException {
+		Criatura criatura1 = new CriaturaDomesticada("Juan", 80, Afinidades.TIERRA, ComportamientoEmocional.TRANQUILA);
+		Criatura criatura2 = new CriaturaDomesticada("Pedro", 70, Afinidades.TIERRA, ComportamientoEmocional.TRANQUILA);
+		
+		criatura1.interactuar(criatura2);
+		
+		Integer valorEsperadoCriatura1 = 90;
+		Integer valorEsperadoCriatura2 = 80;
+
+		assertEquals(valorEsperadoCriatura1, criatura1.getNivel());
+		assertEquals(valorEsperadoCriatura2, criatura2.getNivel());
+
+	}
+	
+	@Test
+	public void queLasCriaturasSeVuelvanInestablesSiTienenAfinidadOpuesta() throws MaximoDeEnergiaAlcanzadoException, EnergiaAcabadaException {
+		Criatura criaturaAgua = new CriaturaAncestral("Juan", 100, Afinidades.AGUA, ComportamientoEmocional.TRANQUILA);
+		Criatura criaturaFuego = new CriaturaAncestral("Pedro", 100, Afinidades.FUEGO, ComportamientoEmocional.TRANQUILA);
+		Criatura criaturaTierra = new CriaturaAncestral("Facu", 100, Afinidades.TIERRA, ComportamientoEmocional.TRANQUILA);
+		Criatura criaturaAire = new CriaturaAncestral("Fede", 100, Afinidades.AIRE, ComportamientoEmocional.TRANQUILA);
+		
+		criaturaAgua.interactuar(criaturaFuego);
+		criaturaTierra.interactuar(criaturaAire);
+		
+		criaturaFuego.interactuar(criaturaAgua);
+		criaturaAire.interactuar(criaturaTierra);
+		
+		ComportamientoEmocional valorEsperadoCriaturaFuego = ComportamientoEmocional.INESTABLE;
+		ComportamientoEmocional valorEsperadoCriaturaAgua = ComportamientoEmocional.INESTABLE;
+		
+		ComportamientoEmocional valorEsperadoCriaturaTierra = ComportamientoEmocional.INESTABLE;
+		ComportamientoEmocional valorEsperadoCriaturaAire = ComportamientoEmocional.INESTABLE;
+
+		assertEquals(valorEsperadoCriaturaFuego, criaturaFuego.getComportamiento());
+		assertEquals(valorEsperadoCriaturaAgua, criaturaAire.getComportamiento());
+		assertEquals(valorEsperadoCriaturaAire, criaturaAire.getComportamiento());
+		assertEquals(valorEsperadoCriaturaTierra, criaturaTierra.getComportamiento());
+
+	}
+	
+	@Test
+	public void queSiSonDomesticadasNoCambienSuComportamientoAunqueTenganAfinidadesOpuestas() throws MaximoDeEnergiaAlcanzadoException, EnergiaAcabadaException {
+		Criatura criatura1 = new CriaturaDomesticada("Juan", 100, Afinidades.AGUA, ComportamientoEmocional.TRANQUILA);
+		Criatura criatura2 = new CriaturaAncestral("Pedro", 100, Afinidades.FUEGO, ComportamientoEmocional.TRANQUILA);
+		
+		criatura1.interactuar(criatura2);
+		
+		ComportamientoEmocional valorEsperadoCriatura1 = ComportamientoEmocional.TRANQUILA;
+		ComportamientoEmocional valorEsperadoCriatura2 = ComportamientoEmocional.INESTABLE;
+
+		assertEquals(valorEsperadoCriatura1, criatura1.getComportamiento());
+		assertEquals(valorEsperadoCriatura2, criatura2.getComportamiento());
+
+	}
+	
+	
+	
+	@Test
+	public void queUnaCriaturaAncestralGane20deEnergiaSiInteractuaConOtraCriaturaDiferente() throws MaximoDeEnergiaAlcanzadoException, EnergiaAcabadaException {
+		Criatura primeraCriaturaAncestral = new CriaturaAncestral("Pedro", 100, Afinidades.FUEGO, ComportamientoEmocional.TRANQUILA);
+		Criatura primeraCriaturaDiferente = new CriaturaDomesticada("Juan", 50, Afinidades.AGUA, ComportamientoEmocional.TRANQUILA);
+		
+		Criatura segundaCriaturaAncestral = new CriaturaAncestral("Pepe", 120, Afinidades.FUEGO, ComportamientoEmocional.TRANQUILA);
+		Criatura segundaCriaturaDiferente = new CriaturaDomesticada("Luis", 30, Afinidades.AGUA, ComportamientoEmocional.TRANQUILA);
+		
+		
+		
+		primeraCriaturaAncestral .interactuar(primeraCriaturaDiferente);
+		segundaCriaturaDiferente.interactuar(segundaCriaturaAncestral);
+		
+		Integer valorEsperadoAncestral1 = 120;
+		Integer valorEsperadoOtraCriatura1 = 35;
+		
+		Integer valorEsperadoAncestral2 = 140;
+		Integer valorEsperadoOtraCriatura2 = 15;
+		
+
+		assertEquals(valorEsperadoAncestral1, primeraCriaturaAncestral.getNivel());
+		assertEquals(valorEsperadoOtraCriatura1, primeraCriaturaDiferente.getNivel());
+		
+		assertEquals(valorEsperadoAncestral2, segundaCriaturaAncestral.getNivel());
+		assertEquals(valorEsperadoOtraCriatura2, segundaCriaturaDiferente.getNivel());
+		
+
+	}
+	
+	@Test (expected = EnergiaAcabadaException.class)
+	public void queLaOtraCriaturaNoBajeDe0AlInteraccionarConUnaAncestral() throws MaximoDeEnergiaAlcanzadoException, EnergiaAcabadaException {
+		Criatura primeraCriaturaAncestral = new CriaturaAncestral("Pedro", 100, Afinidades.FUEGO, ComportamientoEmocional.TRANQUILA);
+		Criatura primeraCriaturaDiferente = new CriaturaDomesticada("Juan", 5, Afinidades.AGUA, ComportamientoEmocional.TRANQUILA);
+		
+		Criatura segundaCriaturaAncestral = new CriaturaAncestral("Pepe", 120, Afinidades.FUEGO, ComportamientoEmocional.TRANQUILA);
+		Criatura segundaCriaturaDiferente = new CriaturaDomesticada("Luis", 10, Afinidades.AGUA, ComportamientoEmocional.TRANQUILA);
+		
+		
+		
+		primeraCriaturaAncestral.interactuar(primeraCriaturaDiferente);
+		segundaCriaturaDiferente.interactuar(segundaCriaturaAncestral);
+
+	}
+	
+
+	
+	
+	
 	
 	
 	

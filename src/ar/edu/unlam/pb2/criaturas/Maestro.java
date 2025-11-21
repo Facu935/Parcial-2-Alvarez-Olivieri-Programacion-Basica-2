@@ -64,7 +64,7 @@ public class Maestro {
 	
 	
 
-	public void entrenarCriatura(Criatura criatura, Integer energiaAAumentar) throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException {
+	public void entrenarCriatura(Criatura criatura, Integer energiaAAumentar) throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException, EnergiaAcabadaException {
 		if (this.maestria >= 25) {
 			criatura.entrenar(energiaAAumentar); 
 		} else {

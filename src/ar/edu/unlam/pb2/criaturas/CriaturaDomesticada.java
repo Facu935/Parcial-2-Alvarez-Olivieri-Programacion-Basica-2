@@ -19,16 +19,11 @@ public class CriaturaDomesticada extends CriaturaElemental{
 	}
 
 	@Override
-	public void entrenar(Integer energiaAAumentar) throws MaximoDeEnergiaAlcanzadoException {
+	public void entrenar(Integer energiaAAumentar) throws MaximoDeEnergiaAlcanzadoException, EnergiaAcabadaException {
 		this.nivelDeEnergia += energiaAAumentar;
+			limiteDe0deEnergia();
+			limiteDe200deEnergiaAlcanzado();
 		
-		if (this.nivelDeEnergia < 0) {
-			this.nivelDeEnergia = 0;
-		}
-		
-		if (this.nivelDeEnergia > 200) {
-			limiteDe200deEnergiaAlcanzado(); 
-		}
 		
 		/*
 		if (vinculoTerrestreActivado() == true && this.nivelDeEnergia < 50) {
