@@ -28,9 +28,9 @@ public class MaestroTest {
 	*/
 	
 	private Maestro maestro;
-	private Criatura criaturaDomesticada;
-	private Criatura criaturaSalvaje;
-	private Criatura criaturaAncestral;
+	private CriaturaElemental criaturaDomesticada;
+	private CriaturaElemental criaturaSalvaje;
+	private CriaturaElemental criaturaAncestral;
 	
 	@Before
 	
@@ -161,6 +161,9 @@ public class MaestroTest {
 
 
 	}
+	
+	
+
 
 
 

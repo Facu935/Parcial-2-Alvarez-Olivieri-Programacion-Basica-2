@@ -13,7 +13,7 @@ public class CriaturasAncestralesTest {
 	
 	
 	private Maestro maestro;
-	private Criatura criaturaAncestral;
+	private CriaturaElemental criaturaAncestral;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -66,7 +66,7 @@ public class CriaturasAncestralesTest {
 	
 	@Test
 	public void queLaCriaturaAncestralSePuedePacificarSiEstaInestable() throws CriaturaYaPacificadaException {
-		Criatura criaturaAncestralInestable = new CriaturaAncestral("Felix", 80, Afinidades.TIERRA, ComportamientoEmocional.INESTABLE);
+		CriaturaElemental criaturaAncestralInestable = new CriaturaAncestral("Felix", 80, Afinidades.TIERRA, ComportamientoEmocional.INESTABLE);
 		maestro.añadirCriaturaAColeccion(criaturaAncestralInestable);
 		
 		Criatura criaturaAPacificar = maestro.obtenerCriatura(criaturaAncestralInestable);

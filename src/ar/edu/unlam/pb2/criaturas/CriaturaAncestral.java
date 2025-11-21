@@ -9,11 +9,10 @@ public class CriaturaAncestral extends CriaturaElemental{
 		super(nombre, nivelDeEnergia, afinidad, comportamiento);
 		validarNivel();
 	}
-	//Que su energia no baje de 100
+
 
 	
-	//Cambiar a estado Inestable si se aumenta mucho la energia por ser un entrenamiento extremo??
-	
+
 	private void validarNivel() {
 		if (this.nivelDeEnergia < 100) {
 			this.nivelDeEnergia = 100;
@@ -22,6 +21,9 @@ public class CriaturaAncestral extends CriaturaElemental{
 	@Override
 	public void entrenar(Integer energiaAumentada) throws MaximoDeEnergiaAlcanzadoException {
 		this.nivelDeEnergia += energiaAumentada;
+		if (this.nivelDeEnergia < 0) {
+			this.nivelDeEnergia = 0;
+		}
 		if (this.nivelDeEnergia < 100) {
 			this.nivelDeEnergia = 100;
 		}
@@ -46,11 +48,7 @@ public class CriaturaAncestral extends CriaturaElemental{
 		
 	}
 
-	@Override
-	public void transformar() {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 
 

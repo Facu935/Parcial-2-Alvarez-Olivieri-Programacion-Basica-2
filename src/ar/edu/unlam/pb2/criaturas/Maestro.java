@@ -8,7 +8,7 @@ public class Maestro {
 	private String nombre;
 	private Integer maestria;
 	private Afinidades afinidad;
-	private Map <String, Criatura> criaturasACargo = new HashMap<>();
+	private Map <String, CriaturaElemental> criaturasACargo = new HashMap<>();
 	
 
 	public Maestro(String nombre, Integer maestria, Afinidades afinidad) {
@@ -47,7 +47,7 @@ public class Maestro {
 		return this.afinidad;
 	}
 
-	public void añadirCriaturaAColeccion(Criatura criaturaDomesticada) {
+	public void añadirCriaturaAColeccion(CriaturaElemental criaturaDomesticada) {
 		criaturasACargo.put(criaturaDomesticada.getNombre(), criaturaDomesticada);
 		
 	}
@@ -56,14 +56,14 @@ public class Maestro {
 		return criaturasACargo.size();
 	}
 
-	public Criatura obtenerCriatura(Criatura criatura) {
+	public CriaturaElemental obtenerCriatura(CriaturaElemental criatura) {
 		return criaturasACargo.get(criatura.getNombre());
 	}
 
 	
 	
 	
-	//Meter validacion por si no tienen la suficiente Maestria
+
 	public void entrenarCriatura(Criatura criatura, Integer energiaAAumentar) throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException {
 		if (this.maestria >= 25) {
 			criatura.entrenar(energiaAAumentar); 
@@ -79,6 +79,10 @@ public class Maestro {
 	}
 
 
+
+
+
+	
 
 
 	

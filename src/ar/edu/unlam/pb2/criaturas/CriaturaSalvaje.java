@@ -55,11 +55,7 @@ public class CriaturaSalvaje extends CriaturaElemental{
 		
 	}
 
-	@Override
-	public void transformar() {
-		// TODO Auto-generated method stub
-		
-	}
+
     
     
     

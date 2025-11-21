@@ -26,7 +26,7 @@ public class CriaturaDomesticadaTest {
 	 */
 	
 	private Maestro maestro;
-	private Criatura criaturaDomesticada;
+	private CriaturaElemental criaturaDomesticada;
 
 	
 	@Before
@@ -62,7 +62,7 @@ public class CriaturaDomesticadaTest {
 	
 	@Test (expected = MaximoDeEnergiaAlcanzadoException.class)
 	public void queLaCriaturaDomesticadaNoPuedaSubirDeMásDe200DeEnergia() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException{
-		Criatura criaturaDomesticada = new CriaturaDomesticada("Pablo", 190, Afinidades.TIERRA, ComportamientoEmocional.INESTABLE);
+		CriaturaElemental criaturaDomesticada = new CriaturaDomesticada("Pablo", 190, Afinidades.TIERRA, ComportamientoEmocional.INESTABLE);
 		maestro.añadirCriaturaAColeccion(criaturaDomesticada);
 		Criatura criaturaAEntrenar = maestro.obtenerCriatura(criaturaDomesticada);
 		

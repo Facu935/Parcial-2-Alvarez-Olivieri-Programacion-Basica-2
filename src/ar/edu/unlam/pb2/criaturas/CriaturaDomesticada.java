@@ -21,16 +21,43 @@ public class CriaturaDomesticada extends CriaturaElemental{
 	@Override
 	public void entrenar(Integer energiaAAumentar) throws MaximoDeEnergiaAlcanzadoException {
 		this.nivelDeEnergia += energiaAAumentar;
+		
+		if (this.nivelDeEnergia < 0) {
+			this.nivelDeEnergia = 0;
+		}
+		
 		if (this.nivelDeEnergia > 200) {
 			limiteDe200deEnergiaAlcanzado(); 
 		}
+		
+		/*
+		if (vinculoTerrestreActivado() == true && this.nivelDeEnergia < 50) {
+			this.nivelDeEnergia = 50;
+		}
+		*/
 	}
 
+	
+	/*
 	@Override
-	public void transformar() {
-		
+	public void llamaInterna() {
+		if (this.afinidad == Afinidades.FUEGO) {
+			this.nivelDeEnergia += 30;
+		}
 		
 	}
+	*/
+
+
+	
+
+
+
+
+
+
+
+
 
 
 

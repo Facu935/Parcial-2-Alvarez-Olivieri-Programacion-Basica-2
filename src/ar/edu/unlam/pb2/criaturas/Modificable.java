@@ -4,6 +4,5 @@ public interface Modificable {
 
 	void entrenar(Integer energia) throws MaximoDeEnergiaAlcanzadoException;
 	void sePacifica() throws CriaturaYaPacificadaException;
-	void transformar();
 	
 }

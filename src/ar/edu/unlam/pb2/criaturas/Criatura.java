@@ -45,7 +45,8 @@ public abstract class Criatura implements Modificable{
 	}
 
 	public abstract void sePacifica() throws CriaturaYaPacificadaException;
-
+	
+	
 
 	
 	

@@ -25,7 +25,7 @@ public class CriaturaSalvajeTest {
 	}
 	 */
 	private Maestro maestro;
-	private Criatura criaturaSalvaje;
+	private CriaturaElemental criaturaSalvaje;
 	@Before
 	public void setUp() throws Exception {
 		maestro = new Maestro("Baltazar", 40, Afinidades.TIERRA);

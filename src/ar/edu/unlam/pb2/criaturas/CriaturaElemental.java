@@ -1,47 +1,70 @@
 package ar.edu.unlam.pb2.criaturas;
 
-public class CriaturaElemental extends Criatura implements Transformable{
+public abstract class CriaturaElemental extends Criatura /*implements Transformable*/{
 
+	/*
+	private Boolean vinculoTerrestreActivado;
+	*/
+	
 	public CriaturaElemental(String nombre, Integer nivelDeEnergia, Afinidades afinidad,
 			ComportamientoEmocional comportamiento) {
 		super(nombre, nivelDeEnergia, afinidad, comportamiento);
+		//this.vinculoTerrestreActivado = false;
 
 	}
 
-	@Override
-	public void entrenar(Integer energia) throws MaximoDeEnergiaAlcanzadoException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void transformar() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void sePacifica() throws CriaturaYaPacificadaException {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
 	@Override
 	public void bendicionDelRio() {
 		this.nivelDeEnergia *= 2;
-		
+		if (nivelDeEnergia > 180) {
+			this.nivelDeEnergia = 180;
+		}
 	}
 
 	@Override
 	public void llamaInterna() {
-		// TODO Auto-generated method stub
+		if (this.afinidad == Afinidades.FUEGO) {
+			this.nivelDeEnergia += 30;
+		} else {
+			this.comportamiento = ComportamientoEmocional.INESTABLE;
+		}
 		
 	}
 
 	@Override
 	public void vinculoTerrestre() {
-		// TODO Auto-generated method stub
-		
+		this.vinculoTerrestreActivado = true;
+	}
+	
+	public Boolean vinculoTerrestreActivado() {
+		return this.vinculoTerrestreActivado;
 	}
 
 	@Override
@@ -49,7 +72,7 @@ public class CriaturaElemental extends Criatura implements Transformable{
 		// TODO Auto-generated method stub
 		
 	}
-
+*/
 
 
 }
