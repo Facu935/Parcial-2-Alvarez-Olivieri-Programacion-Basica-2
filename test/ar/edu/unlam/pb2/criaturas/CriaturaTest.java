@@ -96,20 +96,20 @@ public class CriaturaTest {
 
 	}
 	
-	///Parte 3	
+												////////////   Parte 3	////////////
 	
 	@Test
 	public void queLasCriaturasAumentenEn10SuEnergiaSiCompartenAfinidad() throws MaximoDeEnergiaAlcanzadoException, EnergiaAcabadaException {
-		Criatura criatura1 = new CriaturaDomesticada("Juan", 80, Afinidades.TIERRA, ComportamientoEmocional.TRANQUILA);
-		Criatura criatura2 = new CriaturaDomesticada("Pedro", 70, Afinidades.TIERRA, ComportamientoEmocional.TRANQUILA);
+		Criatura criaturaTierra1 = new CriaturaDomesticada("Juan", 80, Afinidades.TIERRA, ComportamientoEmocional.TRANQUILA);
+		Criatura criaturaTierra2 = new CriaturaSalvaje("Pedro", 70, Afinidades.TIERRA, ComportamientoEmocional.TRANQUILA);
 		
-		criatura1.interactuar(criatura2);
+		criaturaTierra1.interactuar(criaturaTierra2);
 		
-		Integer valorEsperadoCriatura1 = 90;
-		Integer valorEsperadoCriatura2 = 80;
+		Integer valorEsperadoCriaturaTierra1 = 90;
+		Integer valorEsperadoCriaturaTierra2 = 80;
 
-		assertEquals(valorEsperadoCriatura1, criatura1.getNivel());
-		assertEquals(valorEsperadoCriatura2, criatura2.getNivel());
+		assertEquals(valorEsperadoCriaturaTierra1, criaturaTierra1.getNivel());
+		assertEquals(valorEsperadoCriaturaTierra2, criaturaTierra2.getNivel());
 
 	}
 	

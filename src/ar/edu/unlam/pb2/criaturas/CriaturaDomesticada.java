@@ -1,6 +1,6 @@
 package ar.edu.unlam.pb2.criaturas;
 
-public class CriaturaDomesticada extends CriaturaElemental{
+public class CriaturaDomesticada extends CriaturaElemental implements Interaccionable{
 	 
 
 	public CriaturaDomesticada(String nombre, Integer nivelDeEnergia, Afinidades afinidad,
@@ -8,6 +8,7 @@ public class CriaturaDomesticada extends CriaturaElemental{
 		
 		super(nombre, nivelDeEnergia, afinidad, comportamiento);
 		this.comportamiento = ComportamientoEmocional.TRANQUILA;
+		this.esDomesticado = true;
 		
 	}
 
@@ -23,37 +24,92 @@ public class CriaturaDomesticada extends CriaturaElemental{
 		this.nivelDeEnergia += energiaAAumentar;
 			limiteDe0deEnergia();
 			limiteDe200deEnergiaAlcanzado();
-		
-		
-		/*
-		if (vinculoTerrestreActivado() == true && this.nivelDeEnergia < 50) {
-			this.nivelDeEnergia = 50;
-		}
-		*/
 	}
 
-	
+
+
+
+	@Override
+	public void pelearConAncestral(Criatura otraCriatura) throws EnergiaAcabadaException, MaximoDeEnergiaAlcanzadoException {
+		if (otraCriatura.esAncestral())  {
+			perderEnergia(ENERGIA_PERDIDA_INTERACTUAR_CON_ANCESTRAL);
+			otraCriatura.ganarEnergia(20);
+		}
+		
+	}
+
+
 	/*
 	@Override
-	public void llamaInterna() {
-		if (this.afinidad == Afinidades.FUEGO) {
-			this.nivelDeEnergia += 30;
-		}
-		
+	public void compararAfinidadAgua(Criatura otraCriatura) throws MaximoDeEnergiaAlcanzadoException, EnergiaAcabadaException {
+			switch(otraCriatura.getAfinidad()) {
+			case AGUA:
+					gananciaDeEnergiaPorMismaAfinidad(otraCriatura);
+				break;
+			case FUEGO:
+					if (!otraCriatura.esDomesticado) {
+						otraCriatura.setComportamiento(ComportamientoEmocional.INESTABLE);
+					}
+				break;
+			default:
+				break;
+			}
 	}
-	*/
-
-
-	
 
 
 
+	@Override
+	public void compararAfinidadFuego(Criatura otraCriatura) throws EnergiaAcabadaException, MaximoDeEnergiaAlcanzadoException {
+			switch(otraCriatura.getAfinidad()) {
+			case AGUA:
+					if (!otraCriatura.esDomesticado) {
+					otraCriatura.setComportamiento(ComportamientoEmocional.INESTABLE);
+					}
+				break;
+			case FUEGO:
+					gananciaDeEnergiaPorMismaAfinidad(otraCriatura);
+				break;
+			default:
+				break;
+		}
+	}
 
 
 
+	@Override
+	public void compararAfinidadTierra(Criatura otraCriatura) throws EnergiaAcabadaException, MaximoDeEnergiaAlcanzadoException {
+			switch(otraCriatura.getAfinidad()) {
+			case AIRE:
+					if (!otraCriatura.esDomesticado) {
+					otraCriatura.setComportamiento(ComportamientoEmocional.INESTABLE);
+					}
+				break;
+			case TIERRA:
+					gananciaDeEnergiaPorMismaAfinidad(otraCriatura);
+				break;
+			default:
+				break;
+			}
+	}
 
 
 
+	@Override
+	public void compararAfinidadAire(Criatura otraCriatura) throws EnergiaAcabadaException, MaximoDeEnergiaAlcanzadoException {
+			switch(otraCriatura.getAfinidad()) {
+			case TIERRA:
+					if (!otraCriatura.esDomesticado) {
+					otraCriatura.setComportamiento(ComportamientoEmocional.INESTABLE);
+					}
+				break;
+			case AIRE:
+					gananciaDeEnergiaPorMismaAfinidad(otraCriatura);
+				break;
+			default:
+				break;
+			}
+	}
 
+ 		*/
 
 }
