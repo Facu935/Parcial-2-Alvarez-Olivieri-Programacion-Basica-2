@@ -1,0 +1,50 @@
+package ar.edu.unlam.pb2.criaturas;
+
+public abstract class Criatura implements ICriatura, Modificable{
+
+	protected String nombre;
+	protected Integer nivelDeEnergia;
+	protected Afinidades afinidad;
+	protected ComportamientoEmocional comportamiento;
+	protected static final Integer ENERGIA_MAX = 200;
+
+	public Criatura(String nombre, Integer nivelDeEnergia, Afinidades afinidad,
+			ComportamientoEmocional comportamiento) {
+		this.nombre = nombre;
+		this.nivelDeEnergia = nivelDeEnergia;
+		this.afinidad = afinidad;
+		this.comportamiento = comportamiento;
+	}
+	
+	@Override
+	public String getNombre() {
+		return this.nombre;
+	}
+	
+	@Override
+	public Integer getNivel() {
+		return this.nivelDeEnergia;
+	}
+	
+	@Override
+	public Afinidades getAfinidad() {
+		return this.afinidad;
+	}
+	
+	@Override
+	public ComportamientoEmocional getComportamiento() {
+		return this.comportamiento;
+	}
+	
+
+	protected void limiteDe200deEnergiaAlcanzado() throws MaximoDeEnergiaAlcanzadoException {
+		if (nivelDeEnergia > 200) {
+			nivelDeEnergia = 200;
+			throw new MaximoDeEnergiaAlcanzadoException("Ya se encuentra en el máximo de Energía, se limitó a 200");
+		}
+	}
+
+	protected void setNivelEnergiaMaximo() {
+		this.nivelDeEnergia = ENERGIA_MAX;
+	}
+}
