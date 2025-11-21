@@ -4,6 +4,7 @@ public class CriaturaAncestral extends CriaturaElemental{
 	
 	private final Integer ENTRENAMIENTO_EXTREMO = 70;
 
+
 	public CriaturaAncestral(String nombre, Integer nivelDeEnergia, Afinidades afinidad,
 			ComportamientoEmocional comportamiento) {
 		super(nombre, nivelDeEnergia, afinidad, comportamiento);
