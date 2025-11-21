@@ -78,6 +78,9 @@ public class Maestro {
 		
 	}
 
+	public void transformarCriatura(CriaturaElemental criaturaATransformar) {
+		
+	}
 
 
 

@@ -56,6 +56,8 @@ public class CriaturaSalvaje extends CriaturaElemental{
 	}
 
 
+
+
     
     
     
