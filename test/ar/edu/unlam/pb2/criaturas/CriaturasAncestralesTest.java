@@ -1,11 +1,7 @@
 package ar.edu.unlam.pb2.criaturas;
 
 import static org.junit.Assert.*;
-
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class CriaturasAncestralesTest {
@@ -35,7 +31,8 @@ public class CriaturasAncestralesTest {
 	
 	
 	@Test
-	public void queLaCriaturaAncestralSePuedaEntrenarEstablemente() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException{
+
+	public void queLaCriaturaAncestralSePuedaEntrenarEstablemente() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException, EnergiaAcabadaException{
 		Criatura criaturaAEntrenar = maestro.obtenerCriatura(criaturaAncestral);
 		maestro.entrenarCriatura(criaturaAEntrenar, 20);
 
@@ -45,7 +42,8 @@ public class CriaturasAncestralesTest {
 
 	}
 	@Test
-	public void queLaCriaturaAncestralNoPuedaBajarSuEnergiaDe100() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException {
+
+	public void queLaCriaturaAncestralNoPuedaBajarSuEnergiaDe100() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException, EnergiaAcabadaException {
 		Criatura criaturaAEntrenar = maestro.obtenerCriatura(criaturaAncestral);
 		maestro.entrenarCriatura(criaturaAEntrenar, -20);
 		Integer nivelEsperado = 100;
@@ -55,7 +53,7 @@ public class CriaturasAncestralesTest {
 	
 	
 	@Test
-	public void queLaCriaturaAncestralAlEsforzarMuchoSeVuelvaInestable() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException {
+	public void queLaCriaturaAncestralAlEsforzarMuchoSeVuelvaInestable() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException, EnergiaAcabadaException {
 		Criatura criaturaAEntrenar = maestro.obtenerCriatura(criaturaAncestral);
 		maestro.entrenarCriatura(criaturaAEntrenar, 80);
 		

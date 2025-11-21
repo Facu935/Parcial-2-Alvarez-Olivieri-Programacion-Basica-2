@@ -1,6 +1,7 @@
 package ar.edu.unlam.pb2.criaturas;
 
-public class CriaturaDomesticada extends CriaturaElemental{
+public class CriaturaDomesticada extends CriaturaElemental implements Interaccionable{
+
 	 
 
 	public CriaturaDomesticada(String nombre, Integer nivelDeEnergia, Afinidades afinidad,
@@ -8,6 +9,8 @@ public class CriaturaDomesticada extends CriaturaElemental{
 		
 		super(nombre, nivelDeEnergia, afinidad, comportamiento);
 		this.comportamiento = ComportamientoEmocional.TRANQUILA;
+		this.esDomesticado = true;
+
 		
 	}
 
@@ -18,47 +21,25 @@ public class CriaturaDomesticada extends CriaturaElemental{
 		throw new CriaturaYaPacificadaException("La Criatura ya se encuentra tranquila");
 	}
 
-	@Override
-	public void entrenar(Integer energiaAAumentar) throws MaximoDeEnergiaAlcanzadoException {
+
+
+	public void entrenar(Integer energiaAAumentar) throws MaximoDeEnergiaAlcanzadoException, EnergiaAcabadaException {
 		this.nivelDeEnergia += energiaAAumentar;
-		
-		if (this.nivelDeEnergia < 0) {
-			this.nivelDeEnergia = 0;
-		}
-		
-		if (this.nivelDeEnergia > 200) {
-			limiteDe200deEnergiaAlcanzado(); 
-		}
-		
-		/*
-		if (vinculoTerrestreActivado() == true && this.nivelDeEnergia < 50) {
-			this.nivelDeEnergia = 50;
-		}
-		*/
+			limiteDe0deEnergia();
+			limiteDe200deEnergiaAlcanzado();
 	}
 
-	
-	/*
+
+
+
 	@Override
-	public void llamaInterna() {
-		if (this.afinidad == Afinidades.FUEGO) {
-			this.nivelDeEnergia += 30;
+	public void pelearConAncestral(Criatura otraCriatura) throws EnergiaAcabadaException, MaximoDeEnergiaAlcanzadoException {
+		if (otraCriatura.esAncestral())  {
+			perderEnergia(ENERGIA_PERDIDA_INTERACTUAR_CON_ANCESTRAL);
+			otraCriatura.ganarEnergia(20);
 		}
 		
 	}
-	*/
-
-
-	
-
-
-
-
-
-
-
-
-
 
 
 }

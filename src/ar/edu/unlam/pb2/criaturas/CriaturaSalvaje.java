@@ -1,7 +1,9 @@
 package ar.edu.unlam.pb2.criaturas;
 
 
-public class CriaturaSalvaje extends CriaturaElemental{
+
+public class CriaturaSalvaje extends CriaturaElemental implements Interaccionable{
+
 	
 	public CriaturaSalvaje(String nombre, Integer nivelDeEnergia, Afinidades afinidad, ComportamientoEmocional comportamiento) {
 		super(nombre, nivelDeEnergia, afinidad, comportamiento);
@@ -34,6 +36,7 @@ public class CriaturaSalvaje extends CriaturaElemental{
 
 	 */
 	
+
 	//Agregar alguna dificultad para que lo haga
 	@Override
 	public void sePacifica() throws CriaturaYaPacificadaException {
@@ -44,11 +47,29 @@ public class CriaturaSalvaje extends CriaturaElemental{
 		}
 	}
 
+
 	@Override
 	// ENTRENAR = AUMENTAR ENERGIA
 	public void entrenar(Integer energia) throws MaximoDeEnergiaAlcanzadoException {
 		
 	}
+
+	@Override
+	public void pelearConAncestral(Criatura otraCriatura)
+			throws EnergiaAcabadaException, MaximoDeEnergiaAlcanzadoException {
+		if (otraCriatura.esAncestral())  {
+			perderEnergia(ENERGIA_PERDIDA_INTERACTUAR_CON_ANCESTRAL);
+			otraCriatura.ganarEnergia(20);
+		}
+		
+	}
+
+
+
+
+    
+    
+    
 
 }
 
