@@ -22,7 +22,7 @@ public class CriaturaDomesticada extends CriaturaElemental implements Interaccio
 	}
 
 
-
+	@Override
 	public void entrenar(Integer energiaAAumentar) throws MaximoDeEnergiaAlcanzadoException, EnergiaAcabadaException {
 		this.nivelDeEnergia += energiaAAumentar;
 			limiteDe0deEnergia();

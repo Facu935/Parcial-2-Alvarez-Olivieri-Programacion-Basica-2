@@ -9,9 +9,9 @@ public class CriaturaSalvaje extends CriaturaElemental implements Interaccionabl
 		super(nombre, nivelDeEnergia, afinidad, comportamiento);
 	}
 
-	/*
+	
 	@Override
-	public void aumentarEnergia(Integer energia) throws MaximoDeEnergiaAlcanzadoException {
+	public void entrenar(Integer energia) throws MaximoDeEnergiaAlcanzadoException, EnergiaAcabadaException {
 		//Acá pensé en aumentar de manera Aleatoria la energia del Salvaje
 		int aumentoAleatorio = generarAumentoAleatorio();
 		int nuevoNivelDeEnergia = this.nivelDeEnergia + aumentoAleatorio;
@@ -19,6 +19,7 @@ public class CriaturaSalvaje extends CriaturaElemental implements Interaccionabl
 		if (nuevoNivelDeEnergia > ENERGIA_MAX){
 			throw new EnergiaDesbordadaException("Se desbordó el nivel de Energía de la Criatura");
 		} 
+		
 		this.nivelDeEnergia = Integer.valueOf(nuevoNivelDeEnergia);
 		
 	}
@@ -30,11 +31,12 @@ public class CriaturaSalvaje extends CriaturaElemental implements Interaccionabl
 	    if (Math.random() > PROBABILIDAD) {
 	        return 0;
 	    }
-	    return 1 + (int) (Math.random() * 130);
+	    return 1 + (int) (Math.random() * 131);
 	    //Decidimos que que la probabilidad de que ocurra esto sea de un 10%
+	    //Y que sea en un valor de entre 1 y 130 de energia
 	}
 
-	 */
+	 
 	
 
 	//Agregar alguna dificultad para que lo haga
@@ -47,12 +49,6 @@ public class CriaturaSalvaje extends CriaturaElemental implements Interaccionabl
 		}
 	}
 
-
-	@Override
-	// ENTRENAR = AUMENTAR ENERGIA
-	public void entrenar(Integer energia) throws MaximoDeEnergiaAlcanzadoException {
-		
-	}
 
 	@Override
 	public void pelearConAncestral(Criatura otraCriatura)
