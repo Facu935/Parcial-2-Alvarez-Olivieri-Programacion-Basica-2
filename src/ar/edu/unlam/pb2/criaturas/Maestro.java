@@ -1,5 +1,6 @@
 package ar.edu.unlam.pb2.criaturas;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,6 +48,10 @@ public class Maestro {
 
 	public Afinidades getAfinidad() {
 		return this.afinidad;
+	}
+	
+	public Collection<CriaturaElemental> getCriaturas(){
+		return this.criaturasACargo.values();
 	}
 
 	public void añadirCriaturaAColeccion(CriaturaElemental criaturaDomesticada) {
