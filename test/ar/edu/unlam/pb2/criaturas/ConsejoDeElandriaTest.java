@@ -75,5 +75,35 @@ public class ConsejoDeElandriaTest {
 
 	    consejo.getCriaturaConMasNivel();
 	}
+	 
+	@Test
+	public void obtenerMaestroConMasCriaturasTransformadas() {
+	    ConsejoDeElandria consejo = new ConsejoDeElandria();
+
+	    Maestro maestro1 = new Maestro("Novato", 10, Afinidades.AGUA);
+	    ICriatura criaturaBase1 = new CriaturaSalvaje("Pez", 100, Afinidades.AGUA, ComportamientoEmocional.TRANQUILA);
+	    maestro1.añadirCriaturaAColeccion(criaturaBase1); 
+
+
+	    Maestro maestro2= new Maestro("Experto", 50, Afinidades.FUEGO);
+	    
+	    ICriatura criatura1 = new CriaturaDomesticada("Fenix", 150, Afinidades.FUEGO, ComportamientoEmocional.TRANQUILA);
+	    ICriatura criatura2 = new CriaturaAncestral("Golem", 120, Afinidades.TIERRA, ComportamientoEmocional.TRANQUILA);
+	   
+	    criatura1 =  new LlamaInterna(criatura1);        
+	    criatura2 = new VinculoTerrestre(criatura2); 
+	    
+	    maestro2.añadirCriaturaAColeccion(criatura1);
+	    maestro2.añadirCriaturaAColeccion(criatura2);
+
+
+	    consejo.registrarMaestro(maestro1);
+	    consejo.registrarMaestro(maestro2);
+
+	    Maestro ganador = consejo.getMaestroConMasTransformaciones();
+
+	    assertNotNull(ganador);
+	    assertEquals(maestro2, ganador);
+	}
 	
 }

@@ -5,4 +5,7 @@ public interface ICriatura {
     Integer getNivel();
     Afinidades getAfinidad();
     ComportamientoEmocional getComportamiento();
+	
+    void entrenar(Integer energiaAAumentar) throws MaximoDeEnergiaAlcanzadoException, EnergiaAcabadaException;
+	void sePacifica() throws CriaturaYaPacificadaException;
 }

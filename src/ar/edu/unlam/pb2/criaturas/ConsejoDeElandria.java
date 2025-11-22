@@ -45,5 +45,27 @@ public class ConsejoDeElandria {
 		
 		return candidata;
 	}
+	
+	public Maestro getMaestroConMasTransformaciones() {
+	    Maestro ganador = null;
+	    int maxTransformadas = -1;
+
+	    for (Maestro maestro : this.maestros) {
+	        int contadorActual = 0;
+	        
+	        for (ICriatura c : maestro.getCriaturas()) {
+	            if (c instanceof CriaturaDecorador) {
+	                contadorActual++;
+	            }
+	        }
+
+	        if (contadorActual > maxTransformadas) {
+	            maxTransformadas = contadorActual;
+	            ganador = maestro;
+	        }
+	    }
+	    
+	    return ganador;
+	}
 
 }

@@ -27,4 +27,14 @@ public abstract class CriaturaDecorador implements ICriatura {
 	public ComportamientoEmocional getComportamiento() {
 		return criaturaDecorada.getComportamiento();
 	}
+	
+	@Override
+    public void entrenar(Integer energia) throws MaximoDeEnergiaAlcanzadoException, EnergiaAcabadaException {
+        this.criaturaDecorada.entrenar(energia); 
+    }
+
+    @Override
+    public void sePacifica() throws CriaturaYaPacificadaException {
+        this.criaturaDecorada.sePacifica();
+    }
 }

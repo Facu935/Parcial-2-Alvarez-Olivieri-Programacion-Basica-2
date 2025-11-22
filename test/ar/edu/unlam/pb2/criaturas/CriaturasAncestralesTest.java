@@ -6,73 +6,72 @@ import org.junit.Test;
 
 public class CriaturasAncestralesTest {
 
-	
-	
 	private Maestro maestro;
 	private CriaturaElemental criaturaAncestral;
-	
+
 	@Before
 	public void setUp() throws Exception {
 		maestro = new Maestro("Baltazar", 40, Afinidades.AGUA);
 		criaturaAncestral = new CriaturaAncestral("Smaug", 80, Afinidades.TIERRA, ComportamientoEmocional.TRANQUILA);
 		maestro.añadirCriaturaAColeccion(criaturaAncestral);
 	}
-	
-	
-	
+
 	@Test
 	public void queLaCriaturaAncestralComienzeCon100deEnergiaSiempre() {
-		Criatura criaturaATestear = maestro.obtenerCriatura(criaturaAncestral);
-		
+		ICriatura criaturaATestear = maestro.obtenerCriatura(criaturaAncestral.getNombre());
+
 		Integer nivelEsperado = 100;
-		
+
 		assertEquals(nivelEsperado, criaturaATestear.getNivel());
 	}
-	
-	
+
 	@Test
 
-	public void queLaCriaturaAncestralSePuedaEntrenarEstablemente() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException, EnergiaAcabadaException{
-		Criatura criaturaAEntrenar = maestro.obtenerCriatura(criaturaAncestral);
+	public void queLaCriaturaAncestralSePuedaEntrenarEstablemente()
+			throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException, EnergiaAcabadaException {
+		ICriatura criaturaAEntrenar = maestro.obtenerCriatura(criaturaAncestral.getNombre());
 		maestro.entrenarCriatura(criaturaAEntrenar, 20);
 
 		Integer nivelEsperado = 120;
-		
+
 		assertEquals(nivelEsperado, criaturaAEntrenar.getNivel());
 
 	}
+
 	@Test
 
-	public void queLaCriaturaAncestralNoPuedaBajarSuEnergiaDe100() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException, EnergiaAcabadaException {
-		Criatura criaturaAEntrenar = maestro.obtenerCriatura(criaturaAncestral);
+	public void queLaCriaturaAncestralNoPuedaBajarSuEnergiaDe100()
+			throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException, EnergiaAcabadaException {
+		ICriatura criaturaAEntrenar = maestro.obtenerCriatura(criaturaAncestral.getNombre());
 		maestro.entrenarCriatura(criaturaAEntrenar, -20);
 		Integer nivelEsperado = 100;
-		
+
 		assertEquals(nivelEsperado, criaturaAEntrenar.getNivel());
 	}
-	
-	
+
 	@Test
-	public void queLaCriaturaAncestralAlEsforzarMuchoSeVuelvaInestable() throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException, EnergiaAcabadaException {
-		Criatura criaturaAEntrenar = maestro.obtenerCriatura(criaturaAncestral);
+	public void queLaCriaturaAncestralAlEsforzarMuchoSeVuelvaInestable()
+			throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException, EnergiaAcabadaException {
+		ICriatura criaturaAEntrenar = maestro.obtenerCriatura(criaturaAncestral.getNombre());
 		maestro.entrenarCriatura(criaturaAEntrenar, 80);
-		
+
 		ComportamientoEmocional comportamientoEsperado = ComportamientoEmocional.INESTABLE;
-		
+
 		assertEquals(comportamientoEsperado, criaturaAncestral.getComportamiento());
 	}
-	
+
 	@Test
 	public void queLaCriaturaAncestralSePuedePacificarSiEstaInestable() throws CriaturaYaPacificadaException {
-		CriaturaElemental criaturaAncestralInestable = new CriaturaAncestral("Felix", 80, Afinidades.TIERRA, ComportamientoEmocional.INESTABLE);
+		CriaturaElemental criaturaAncestralInestable = new CriaturaAncestral("Felix", 80, Afinidades.TIERRA,
+				ComportamientoEmocional.INESTABLE);
 		maestro.añadirCriaturaAColeccion(criaturaAncestralInestable);
-		
-		Criatura criaturaAPacificar = maestro.obtenerCriatura(criaturaAncestralInestable);
-		
+
+		ICriatura criaturaAPacificar = maestro.obtenerCriatura(criaturaAncestralInestable.getNombre());
+
 		maestro.pacificarCriatura(criaturaAPacificar);
-		
+
 		ComportamientoEmocional comportamientoEsperado = ComportamientoEmocional.TRANQUILA;
-		
+
 		assertEquals(comportamientoEsperado, criaturaAncestralInestable.getComportamiento());
 	}
 

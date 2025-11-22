@@ -9,7 +9,7 @@ public class Maestro {
 	private String nombre;
 	private Integer maestria;
 	private Afinidades afinidad;
-	private Map <String, CriaturaElemental> criaturasACargo = new HashMap<>();
+	private Map <String, ICriatura> criaturasACargo = new HashMap<>();
 	
 
 	public Maestro(String nombre, Integer maestria, Afinidades afinidad) {
@@ -50,11 +50,11 @@ public class Maestro {
 		return this.afinidad;
 	}
 	
-	public Collection<CriaturaElemental> getCriaturas(){
+	public Collection<ICriatura> getCriaturas(){
 		return this.criaturasACargo.values();
 	}
 
-	public void añadirCriaturaAColeccion(CriaturaElemental criaturaDomesticada) {
+	public void añadirCriaturaAColeccion(ICriatura criaturaDomesticada) {
 		criaturasACargo.put(criaturaDomesticada.getNombre(), criaturaDomesticada);
 	}
 
@@ -63,27 +63,25 @@ public class Maestro {
 		return criaturasACargo.size();
 	}
 
-	public CriaturaElemental obtenerCriatura(CriaturaElemental criatura) {
-		return criaturasACargo.get(criatura.getNombre());
+	public ICriatura obtenerCriatura(String nombreCriatura) {
+		return this.criaturasACargo.get(nombreCriatura);
 	}
 
-	public void entrenarCriatura(Criatura criatura, Integer energiaAAumentar) throws MaximoDeEnergiaAlcanzadoException,
-	FaltaDeMaestriaException, EnergiaAcabadaException {
-		if (this.maestria >= 25) {
-			criatura.entrenar(energiaAAumentar); 
-		} else {
-			throw new FaltaDeMaestriaException("Al Maestro le falta maestria elemental para entrenar a la criatura, que siga estudiando");
-		}
-		
-	}
+	public void entrenarCriatura(ICriatura criatura, Integer energiaAAumentar) throws MaximoDeEnergiaAlcanzadoException, FaltaDeMaestriaException, EnergiaAcabadaException {
+        if (this.maestria >= 25) {
+            criatura.entrenar(energiaAAumentar); 
+        } else {
+            throw new FaltaDeMaestriaException("Al Maestro le falta maestria...");
+        }
+    }
 
-	public void pacificarCriatura(Criatura criaturaAPacificar) throws CriaturaYaPacificadaException{
+	public void pacificarCriatura(ICriatura criaturaAPacificar) throws CriaturaYaPacificadaException{
 			criaturaAPacificar.sePacifica();
 		
 	}
 
-	public void transformarCriatura(CriaturaElemental criaturaATransformar) {
-		
+	public void transformarCriatura(ICriatura criaturaOriginal, ICriatura criaturaYaTransformada) {
+		criaturasACargo.put(criaturaOriginal.getNombre(), criaturaYaTransformada);
 	}
 
 
