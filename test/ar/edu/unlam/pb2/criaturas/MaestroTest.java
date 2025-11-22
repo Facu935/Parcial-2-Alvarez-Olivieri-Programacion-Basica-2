@@ -12,7 +12,6 @@ public class MaestroTest {
 	private ICriatura criaturaAncestral;
 
 	@Before
-
 	public void setUp() throws Exception {
 		maestro = new Maestro("Baltazar", 40, Afinidades.TIERRA);
 		criaturaDomesticada = new CriaturaDomesticada("Pablo", 80, Afinidades.TIERRA,
