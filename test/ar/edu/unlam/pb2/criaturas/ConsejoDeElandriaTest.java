@@ -3,6 +3,7 @@ package ar.edu.unlam.pb2.criaturas;
 import static org.junit.Assert.*;
 
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -39,7 +40,6 @@ public class ConsejoDeElandriaTest {
 
 		assertNotNull(maestrosRegistrados);
 		assertEquals(maestrosEsperados, maestrosRegistrados);
-
 	}
 
 	@Test
@@ -98,6 +98,30 @@ public class ConsejoDeElandriaTest {
 
 		assertNotNull(ganador);
 		assertEquals(maestro2, ganador);
+	}
+	
+	@Test
+	public void validarQueSeGenereReporteDeCantidadDeCriaturasPorAfinidad() throws NoHayCriaturasException {
+	    
+	    maestro1.añadirCriaturaAColeccion(criaturaDomesticada1);
+	    maestro1.añadirCriaturaAColeccion(criatura2);       
+
+	    maestro2.añadirCriaturaAColeccion(criaturaBase1);
+
+	    consejo.registrarMaestro(maestro1);
+	    consejo.registrarMaestro(maestro2);
+
+	    Map<Afinidades, Integer> reporte = consejo.obtenerReporteDeAfinidades();
+
+	    assertNotNull(reporte);
+	    assertEquals((Integer) 2, reporte.get(Afinidades.TIERRA));
+	    assertEquals((Integer) 1, reporte.get(Afinidades.AGUA));
+	    assertNull(reporte.get(Afinidades.FUEGO)); 
+	}
+	
+	@Test(expected = NoHayCriaturasException.class)
+	public void validarQueAlPedirReporteDeAfinidadesSinDatosSeLanceExcepcion() throws NoHayCriaturasException {
+	    consejo.obtenerReporteDeAfinidades();
 	}
 
 }
