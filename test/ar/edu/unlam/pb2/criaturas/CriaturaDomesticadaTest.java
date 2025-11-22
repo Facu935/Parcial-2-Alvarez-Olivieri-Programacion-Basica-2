@@ -6,22 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class CriaturaDomesticadaTest {
-	/*
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	
-
-	@After
-	public void tearDown() throws Exception {
-	}
-	 */
-	
 	private Maestro maestro;
 	private CriaturaElemental criaturaDomesticada;
 

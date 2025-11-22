@@ -27,5 +27,23 @@ public class ConsejoDeElandria {
 		
 		return todasLasCriaturas;
 	}
+	
+	public ICriatura getCriaturaConMasNivel() throws NoHayCriaturasException {
+		List<ICriatura> todas = obtenerTodasLasCriaturas();
+		
+		if(todas.isEmpty()) {
+			throw new NoHayCriaturasException("No se puede calcular el más poderoso: No hay criaturas registradas.");
+		}
+		
+		ICriatura candidata = todas.get(0);
+		
+		for(ICriatura criatura : todas) {
+			if(criatura.getNivel() > candidata.getNivel()) {
+				candidata = criatura;
+			}
+		}
+		
+		return candidata;
+	}
 
 }
