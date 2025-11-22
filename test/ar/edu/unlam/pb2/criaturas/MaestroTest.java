@@ -122,8 +122,9 @@ public class MaestroTest {
 
 		maestro.añadirCriaturaAColeccion(criaturaDomesticada);
 		ICriatura criaturaAPacificar = maestro.obtenerCriatura(criaturaDomesticada.getNombre());
-
+		
 		maestro.pacificarCriatura(criaturaAPacificar);
+
 	}
 
 }

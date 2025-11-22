@@ -8,16 +8,12 @@ import org.junit.Test;
 public class CriaturaTest {
 	private Maestro maestro;
 	private Criatura criaturaDomesticada;
-	private Criatura criaturaSalvaje;
-	private Criatura criaturaAncestral;
 
 	@Before
 	public void setUp() throws Exception {
 		maestro = new Maestro("Baltazar", 40, Afinidades.TIERRA);
 		criaturaDomesticada = new CriaturaDomesticada("Pablo", 150, Afinidades.TIERRA,
 				ComportamientoEmocional.TRANQUILA);
-		criaturaSalvaje = new CriaturaSalvaje("Marcelo", 100, Afinidades.FUEGO, ComportamientoEmocional.INESTABLE);
-		criaturaAncestral = new CriaturaAncestral("Jorge", 180, Afinidades.AIRE, ComportamientoEmocional.TRANQUILA);
 	}
 
 	@Test
@@ -75,21 +71,60 @@ public class CriaturaTest {
 	//////////// Parte 3 ////////////
 
 	@Test
-	public void queLasCriaturasAumentenEn10SuEnergiaSiCompartenAfinidad()
-			throws MaximoDeEnergiaAlcanzadoException, EnergiaAcabadaException {
-		Criatura criaturaTierra1 = new CriaturaDomesticada("Juan", 80, Afinidades.TIERRA,
-				ComportamientoEmocional.TRANQUILA);
-		Criatura criaturaTierra2 = new CriaturaSalvaje("Pedro", 70, Afinidades.TIERRA,
-				ComportamientoEmocional.TRANQUILA);
-
+	public void queLasCriaturasAumentenEn10SuEnergiaSiCompartenAfinidad() throws MaximoDeEnergiaAlcanzadoException, EnergiaAcabadaException {
+		
+		Criatura criaturaTierra1 = new CriaturaDomesticada("Juan", 80, Afinidades.TIERRA, ComportamientoEmocional.TRANQUILA);
+		Criatura criaturaTierra2 = new CriaturaSalvaje("Pedro", 70, Afinidades.TIERRA, ComportamientoEmocional.TRANQUILA);
+		Criatura criaturaAire1 = new CriaturaDomesticada("Juan", 80, Afinidades.AIRE, ComportamientoEmocional.TRANQUILA);
+		Criatura criaturaAire2 = new CriaturaSalvaje("Pedro", 70, Afinidades.AIRE, ComportamientoEmocional.TRANQUILA);
+		Criatura criaturaFuego1 = new CriaturaDomesticada("Juan", 80, Afinidades.FUEGO, ComportamientoEmocional.TRANQUILA);
+		Criatura criaturaFuego2 = new CriaturaSalvaje("Pedro", 70, Afinidades.FUEGO, ComportamientoEmocional.TRANQUILA);
+		Criatura criaturaAgua1 = new CriaturaDomesticada("Juan", 80, Afinidades.AGUA, ComportamientoEmocional.TRANQUILA);
+		Criatura criaturaAgua2 = new CriaturaSalvaje("Pedro", 70, Afinidades.AGUA, ComportamientoEmocional.TRANQUILA);
+		
+		
+		
+		//Para Criaturas de Tierra
 		criaturaTierra1.interactuar(criaturaTierra2);
-
+		
 		Integer valorEsperadoCriaturaTierra1 = 90;
 		Integer valorEsperadoCriaturaTierra2 = 80;
 
 		assertEquals(valorEsperadoCriaturaTierra1, criaturaTierra1.getNivel());
 		assertEquals(valorEsperadoCriaturaTierra2, criaturaTierra2.getNivel());
+		
+		//Para Criaturas de Aire
 
+		
+		criaturaAire1.interactuar(criaturaAire2);
+		
+		Integer valorEsperadoCriaturaAire1 = 90;
+		Integer valorEsperadoCriaturaAire2 = 80;
+
+		assertEquals(valorEsperadoCriaturaAire1, criaturaAire1.getNivel());
+		assertEquals(valorEsperadoCriaturaAire2, criaturaAire2.getNivel());
+
+		
+		//Para Criaturas de Fuego
+		
+		criaturaFuego1.interactuar(criaturaFuego2);
+		
+		Integer valorEsperadoCriaturaFuego1 = 90;
+		Integer valorEsperadoCriaturaFuego2 = 80;
+
+		assertEquals(valorEsperadoCriaturaFuego1, criaturaFuego1.getNivel());
+		assertEquals(valorEsperadoCriaturaFuego2, criaturaFuego2.getNivel());
+		
+		
+		//Para Criaturas de Agua
+		
+		criaturaAgua1.interactuar(criaturaAgua2);
+		
+		Integer valorEsperadoCriaturaAgua1 = 90;
+		Integer valorEsperadoCriaturaAgua2 = 80;
+
+		assertEquals(valorEsperadoCriaturaAgua1, criaturaAgua1.getNivel());
+		assertEquals(valorEsperadoCriaturaAgua2, criaturaAgua2.getNivel());
 	}
 
 	@Test
@@ -147,7 +182,7 @@ public class CriaturaTest {
 
 		Criatura segundaCriaturaAncestral = new CriaturaAncestral("Pepe", 120, Afinidades.FUEGO,
 				ComportamientoEmocional.TRANQUILA);
-		Criatura segundaCriaturaDiferente = new CriaturaDomesticada("Luis", 30, Afinidades.AGUA,
+		Criatura segundaCriaturaDiferente = new CriaturaSalvaje("Luis", 30, Afinidades.AGUA,
 				ComportamientoEmocional.TRANQUILA);
 
 		primeraCriaturaAncestral.interactuar(primeraCriaturaDiferente);

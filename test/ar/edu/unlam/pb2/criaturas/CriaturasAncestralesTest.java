@@ -74,5 +74,14 @@ public class CriaturasAncestralesTest {
 
 		assertEquals(comportamientoEsperado, criaturaAncestralInestable.getComportamiento());
 	}
+	
+	@Test(expected = CriaturaYaPacificadaException.class)
+	public void queLaCriaturaAncestralNoSePacifiqueYaQueYaLoEsta()throws CriaturaYaPacificadaException {
+		ICriatura criaturaAPacificar = maestro.obtenerCriatura(criaturaAncestral.getNombre());
+		maestro.pacificarCriatura(criaturaAPacificar);
+
+	}
+
+
 
 }

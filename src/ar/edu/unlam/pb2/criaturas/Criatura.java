@@ -42,11 +42,7 @@ public abstract class Criatura implements Modificable, Interaccionable, ICriatur
 	public boolean esAncestral() {
 		return esAncestral;
 	}
-	protected void setNivel(Integer nivel) throws MaximoDeEnergiaAlcanzadoException, EnergiaAcabadaException {
-		nivelDeEnergia = nivel;
-		limiteDe0deEnergia();
-		limiteDe200deEnergiaAlcanzado();
-	}
+
 	
 	protected Integer ganarEnergia(Integer energiaGanada) throws EnergiaAcabadaException, MaximoDeEnergiaAlcanzadoException {
 		this.nivelDeEnergia += energiaGanada;
@@ -62,18 +58,12 @@ public abstract class Criatura implements Modificable, Interaccionable, ICriatur
 		return nivelDeEnergia;
 	}
 
-	protected void gananciaDeEnergiaPorMismaAfinidad(Criatura otraCriatura) throws EnergiaAcabadaException, MaximoDeEnergiaAlcanzadoException {
-		ganarEnergia(10);
-		otraCriatura.ganarEnergia(10);
-	}
 
 	public ComportamientoEmocional getComportamiento() {
 		return this.comportamiento;
 	}
 	
-
 	
-
 	protected void limiteDe200deEnergiaAlcanzado() throws MaximoDeEnergiaAlcanzadoException {
 		if (nivelDeEnergia > 200) {
 			nivelDeEnergia = 200;
@@ -81,12 +71,6 @@ public abstract class Criatura implements Modificable, Interaccionable, ICriatur
 		}
 	}
 
-	protected void setNivelEnergiaMaximo() {
-		this.nivelDeEnergia = ENERGIA_MAX;
-	}
-
-
-	
 	protected void limiteDe0deEnergia() throws EnergiaAcabadaException {
 		if (nivelDeEnergia < 0) {
 			this.nivelDeEnergia = 0;
@@ -94,10 +78,6 @@ public abstract class Criatura implements Modificable, Interaccionable, ICriatur
 		}
 	}
 
-
-
-
-	
 
 	protected void setComportamiento(ComportamientoEmocional comportamiento) {
 		this.comportamiento = comportamiento;
@@ -108,10 +88,6 @@ public abstract class Criatura implements Modificable, Interaccionable, ICriatur
 		this.pelearConAncestral(otraCriatura);
 		this.getAfinidad().interactuarCon(this, otraCriatura);
 	}
-	
-	
-
-	
 	
 	
 }

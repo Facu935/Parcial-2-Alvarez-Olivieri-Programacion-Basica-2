@@ -6,7 +6,6 @@ public class CriaturaDomesticada extends CriaturaElemental implements Interaccio
 
 	public CriaturaDomesticada(String nombre, Integer nivelDeEnergia, Afinidades afinidad,
 			ComportamientoEmocional comportamiento) {
-		
 		super(nombre, nivelDeEnergia, afinidad, comportamiento);
 		this.comportamiento = ComportamientoEmocional.TRANQUILA;
 		this.esDomesticado = true;
@@ -14,22 +13,16 @@ public class CriaturaDomesticada extends CriaturaElemental implements Interaccio
 		
 	}
 
-
-
 	@Override
 	public void sePacifica() throws CriaturaYaPacificadaException {
 		throw new CriaturaYaPacificadaException("La Criatura ya se encuentra tranquila");
 	}
-
-
 
 	public void entrenar(Integer energiaAAumentar) throws MaximoDeEnergiaAlcanzadoException, EnergiaAcabadaException {
 		this.nivelDeEnergia += energiaAAumentar;
 			limiteDe0deEnergia();
 			limiteDe200deEnergiaAlcanzado();
 	}
-
-
 
 
 	@Override
@@ -40,6 +33,5 @@ public class CriaturaDomesticada extends CriaturaElemental implements Interaccio
 		}
 		
 	}
-
 
 }
